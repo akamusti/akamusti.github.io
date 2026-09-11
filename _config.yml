@@ -1,0 +1,18 @@
+title: akaMusti
+description: akaMusti — links, projects, socials, and blog.
+url: https://akamusti.github.io
+baseurl: ""
+lang: tr
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+feed:
+  path: blog/feed.xml
+  posts_limit: 20
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
