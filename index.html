@@ -59,41 +59,10 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
-  .term {
-    border: 1px solid var(--divider);
-    border-radius: var(--radius);
-    background: rgba(255, 255, 255, 0.02);
-    overflow: hidden;
-  }
-
-  .term-bar {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--divider);
-  }
-
-  .dot {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-  }
-
-  .dot.r { background: #ff5f57; }
-  .dot.y { background: #febc2e; }
-  .dot.g { background: #28c840; }
-
-  .term-title {
-    flex: 1;
-    text-align: center;
-    font-size: 12px;
-    color: var(--dim);
-  }
-
-  .term-body { padding: 20px 20px 24px; }
+  .term-body { padding: 8px 4px 0; }
 
   .line { margin-bottom: 2px; overflow-wrap: anywhere; }
 
@@ -143,20 +112,13 @@
   @media (max-width: 480px) {
     .shell { padding-top: 48px; }
     body { font-size: 13px; }
-    .term-body { padding: 16px 16px 20px; }
+    .term-body { padding: 4px 0 0; }
   }
 </style>
 </head>
 <body>
 <div class="shell">
-  <div class="term">
-    <div class="term-bar">
-      <span class="dot r"></span>
-      <span class="dot y"></span>
-      <span class="dot g"></span>
-      <span class="term-title">akaMusti — zsh</span>
-    </div>
-    <div class="term-body">
+  <div class="term-body">
       <p class="line cmd"><span class="prompt">akaMusti@web:~$</span> whoami</p>
       <p class="line out">builds &amp; writes — firefox eklentileri, ufak araçlar, yazılar</p>
 
@@ -171,7 +133,6 @@
       <p class="line out"><a href="https://github.com/akamusti" target="_blank" rel="noopener noreferrer">github</a> · <a href="https://x.com/aakamusti" target="_blank" rel="noopener noreferrer">x</a> · <a href="https://letterboxd.com/akaMusti/" target="_blank" rel="noopener noreferrer">letterboxd</a> · <a href="https://serializd.com/user/akaMusti/" target="_blank" rel="noopener noreferrer">serializd</a> · <a href="https://anilist.co/user/akaMusti/" target="_blank" rel="noopener noreferrer">anilist</a></p>
 
       <p class="line cmd"><span class="prompt">akaMusti@web:~$</span> <span class="cursor"></span></p>
-    </div>
   </div>
 
   <footer>&copy; 2026 akaMusti</footer>
