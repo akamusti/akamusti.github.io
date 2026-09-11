@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -191,6 +193,59 @@
     color: var(--accent);
   }
 
+  .blog-box {
+    border: 1px solid rgba(126, 231, 135, 0.22);
+    border-radius: var(--radius);
+    background: rgba(126, 231, 135, 0.03);
+    padding: 4px 18px;
+  }
+
+  .blog-post {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: var(--fg);
+  }
+
+  .blog-post .b-title {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .blog-post:hover .b-title { color: var(--accent); }
+
+  .blog-post .b-date {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 11px;
+    color: var(--dim);
+    white-space: nowrap;
+  }
+
+  .blog-empty {
+    padding: 13px 0;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .blog-all {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .blog-all:hover { color: var(--accent); }
+
   footer {
     margin-top: 40px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -239,13 +294,16 @@
 
     <section>
       <p class="section-label">blog</p>
-      <div class="links">
-        <a class="link" href="/blog/">
-          <svg class="line" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          <span class="label">tüm yazılar</span>
-          <span class="tag">blog</span>
-          <span class="arrow">&#8599;</span>
+      <div class="blog-box">
+        {% for post in site.posts limit:3 %}
+        <a class="blog-post" href="{{ post.url }}">
+          <span class="b-title">{{ post.title }}</span>
+          <span class="b-date">{{ post.date | date: "%d.%m.%Y" }}</span>
         </a>
+        {% else %}
+        <p class="blog-empty">henüz yazı yok — yakında.</p>
+        {% endfor %}
+        <a class="blog-all" href="/blog/"><span>tüm yazılar</span><span>&rarr;</span></a>
       </div>
     </section>
 
