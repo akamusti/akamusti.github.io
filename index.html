@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>akaMusti</title>
-<meta name="description" content="akaMusti — links, projects, and socials.">
+<title>akaMusti'nin Ana Sayfası ★</title>
+<meta name="description" content="akaMusti — kişisel ana sayfa. Projeler, yazılar, defter ve linkler.">
 <meta name="theme-color" content="#0b0d10">
-<meta property="og:title" content="akaMusti">
-<meta property="og:description" content="links, projects, and socials">
+<meta property="og:title" content="akaMusti'nin Ana Sayfası">
+<meta property="og:description" content="projeler, yazılar, defter ve linkler">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://akamusti.github.io/">
 <meta property="og:image" content="https://akamusti.github.io/avatar.jpg">
@@ -22,14 +22,9 @@
     --divider: rgba(255, 255, 255, 0.07);
     --accent: #7ee787;
     --radius: 12px;
-    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   ::selection {
     background: rgba(126, 231, 135, 0.25);
@@ -37,8 +32,7 @@
   }
 
   body {
-    font-family: var(--mono);
-    font-size: 14px;
+    font-family: "Times New Roman", Times, serif;
     color: var(--fg);
     background-color: var(--bg);
     background-image:
@@ -48,97 +42,213 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    line-height: 1.7;
+    line-height: 1.6;
   }
 
   .shell {
     width: 100%;
     max-width: 640px;
     margin: 0 auto;
-    padding: 72px 24px 40px;
+    padding: 56px 24px 40px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
-  .term-body { padding: 8px 4px 0; }
-
-  .line { margin-bottom: 2px; overflow-wrap: anywhere; }
-
-  .cmd { margin-top: 16px; }
-
-  .cmd:first-child { margin-top: 0; }
-
-  .prompt { color: var(--accent); }
-
-  .out { color: var(--muted); }
-
-  .out a, a.cmd-link {
-    color: var(--fg);
-    text-decoration: none;
-    border-bottom: 1px dashed rgba(126, 231, 135, 0.4);
-    transition: color 0.15s ease, border-color 0.15s ease;
+  .welcome {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
   }
 
-  .out a:hover, a.cmd-link:hover {
+  h1 {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 40px;
     color: var(--accent);
-    border-bottom-style: solid;
+    margin-bottom: 4px;
   }
 
-  .dim { color: var(--dim); }
+  .tagline {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
 
-  .cursor {
-    display: inline-block;
-    width: 8px;
-    height: 16px;
-    vertical-align: -2px;
+  .photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px double rgba(126, 231, 135, 0.5);
+    margin-bottom: 8px;
+  }
+
+  .divider-img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0 18px;
+  }
+
+  marquee {
+    width: 100%;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 15px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 23px;
+    color: var(--fg);
+    margin-bottom: 10px;
+  }
+
+  h2 .stars { color: var(--accent); }
+
+  section {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  p { margin-bottom: 10px; font-size: 17px; }
+
+  .muted { color: var(--muted); }
+
+  a { color: var(--accent); }
+
+  a:hover { color: var(--fg); }
+
+  ul { list-style: none; margin-bottom: 10px; }
+
+  li {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  li .desc {
+    display: block;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .yeni {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 11px;
+    font-weight: bold;
+    color: #0b0d10;
     background: var(--accent);
-    animation: blink 1.1s steps(1) infinite;
+    padding: 1px 7px;
+    border-radius: 4px;
+    vertical-align: 2px;
+    animation: blink 1.2s steps(1) infinite;
   }
 
   @keyframes blink {
     0%, 55% { opacity: 1; }
-    56%, 100% { opacity: 0; }
+    56%, 100% { opacity: 0.25; }
+  }
+
+  .linkrow {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .cat {
+    width: 64px;
+    height: 64px;
+    image-rendering: pixelated;
+    margin: 6px 0 2px;
+  }
+
+  .best {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 11px;
+    color: var(--dim);
+    margin-bottom: 4px;
   }
 
   footer {
-    margin-top: 24px;
-    text-align: center;
+    margin-top: 16px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 11px;
     color: var(--dim);
   }
 
   @media (max-width: 480px) {
-    .shell { padding-top: 48px; }
-    body { font-size: 13px; }
-    .term-body { padding: 4px 0 0; }
+    .shell { padding-top: 40px; }
+    h1 { font-size: 31px; }
+    h2 { font-size: 20px; }
   }
 </style>
 </head>
 <body>
 <div class="shell">
-  <div class="term-body">
-      <p class="line cmd"><span class="prompt">akaMusti@web:~$</span> merhaba</p>
-      <p class="line out">ben akaMusti — firefox eklentileri ve ufak araçlar yapıyorum, yazıyorum</p>
+  <p class="welcome">★。.· hoşgeldin ·.·★</p>
+  <h1>akaMusti</h1>
+  <p class="tagline">burası benim internet köşem</p>
 
-      <p class="line cmd"><span class="prompt">akaMusti@web:~$</span> projeler</p>
-      <p class="line out"><a href="https://addons.mozilla.org/tr/firefox/addon/soundsniff/" target="_blank" rel="noopener noreferrer">soundsniff</a> <span class="dim">— sekmede çalan müziği tanı</span></p>
-      <p class="line out"><a href="https://akamusti.github.io/kick-notifier/" target="_blank" rel="noopener noreferrer">kick-notifier</a> <span class="dim">— yayın bildirimleri</span></p>
+  <img class="photo" src="avatar.jpg" alt="akaMusti">
 
-      <p class="line cmd"><span class="prompt">akaMusti@web:~$</span> blog</p>
-      <p class="line out"><a href="/blog/">blog</a> <span class="dim">— son yazılar</span></p>
+  <marquee behavior="scroll" direction="left" scrollamount="5">firefox eklentileri ★ ufak araçlar ★ yazılar ★ ziyaretçi defteri ★★ imza atmayı unutma ★</marquee>
 
-      <p class="line cmd"><span class="prompt">akaMusti@web:~$</span> defter</p>
-      <p class="line out"><a href="/defter/">defter</a> <span class="dim">— bir satır bırak</span></p>
+  <img class="divider-img" src="https://blob.gifcities.org/gifcities/3LLFJNCASJRA6XECOTCY5RIIJ3NOP4HT.gif" width="564" height="24" alt="yıldızlı ayraç">
 
-      <p class="line cmd"><span class="prompt">akaMusti@web:~$</span> iletisim</p>
-      <p class="line out"><a href="https://github.com/akamusti" target="_blank" rel="noopener noreferrer">github</a> · <a href="https://x.com/aakamusti" target="_blank" rel="noopener noreferrer">x</a> · <a href="https://letterboxd.com/akaMusti/" target="_blank" rel="noopener noreferrer">letterboxd</a> · <a href="https://serializd.com/user/akaMusti/" target="_blank" rel="noopener noreferrer">serializd</a> · <a href="https://anilist.co/user/akaMusti/" target="_blank" rel="noopener noreferrer">anilist</a></p>
+  <section>
+    <h2><span class="stars">★</span> hakkımda <span class="stars">★</span></h2>
+    <p class="muted">selam, ben musti. tarayıcı eklentileri ve küçük araçlar yapıyorum, arada yazıyorum. sinema, dizi, anime — onlar da var.</p>
+  </section>
 
-      <p class="line cmd"><span class="prompt">akaMusti@web:~$</span> <span class="cursor"></span></p>
-  </div>
+  <img class="divider-img" src="https://blob.gifcities.org/gifcities/3LLFJNCASJRA6XECOTCY5RIIJ3NOP4HT.gif" width="564" height="24" alt="yıldızlı ayraç">
 
-  <footer>&copy; 2026 akaMusti</footer>
+  <section>
+    <h2><span class="stars">★</span> projelerim <span class="stars">★</span></h2>
+    <ul>
+      <li>
+        <a href="https://addons.mozilla.org/tr/firefox/addon/soundsniff/" target="_blank" rel="noopener noreferrer">soundsniff</a>
+        <span class="yeni">YENİ!</span>
+        <span class="desc">sekmede çalan müziği tanı — firefox eklentisi</span>
+      </li>
+      <li>
+        <a href="https://akamusti.github.io/kick-notifier/" target="_blank" rel="noopener noreferrer">kick-notifier</a>
+        <span class="desc">sevdiğin yayıncılar yayına girince haber veriyor</span>
+      </li>
+    </ul>
+  </section>
+
+  <img class="divider-img" src="https://blob.gifcities.org/gifcities/3LLFJNCASJRA6XECOTCY5RIIJ3NOP4HT.gif" width="564" height="24" alt="yıldızlı ayraç">
+
+  <section>
+    <h2><span class="stars">★</span> günlüğüm <span class="stars">★</span></h2>
+    <p><a href="/blog/">bloguma göz at</a> <span class="muted">— proje notları, denemeler, liste dışı şeyler</span></p>
+  </section>
+
+  <img class="divider-img" src="https://blob.gifcities.org/gifcities/3LLFJNCASJRA6XECOTCY5RIIJ3NOP4HT.gif" width="564" height="24" alt="yıldızlı ayraç">
+
+  <section>
+    <h2><span class="stars">★</span> defter <span class="stars">★</span></h2>
+    <p><a href="/defter/">ziyaretçi defterini imzala</a></p>
+    <img class="cat" src="https://blob.gifcities.org/gifcities/FKVFHB3JOI77PH7SYWEM36X4ZSQWLLUD.gif" width="64" height="64" alt="dans eden kedi">
+  </section>
+
+  <img class="divider-img" src="https://blob.gifcities.org/gifcities/3LLFJNCASJRA6XECOTCY5RIIJ3NOP4HT.gif" width="564" height="24" alt="yıldızlı ayraç">
+
+  <section>
+    <h2><span class="stars">★</span> linklerim <span class="stars">★</span></h2>
+    <p class="linkrow">
+      <a href="https://github.com/akamusti" target="_blank" rel="noopener noreferrer">github</a> ·
+      <a href="https://x.com/aakamusti" target="_blank" rel="noopener noreferrer">x</a> ·
+      <a href="https://letterboxd.com/akaMusti/" target="_blank" rel="noopener noreferrer">letterboxd</a> ·
+      <a href="https://serializd.com/user/akaMusti/" target="_blank" rel="noopener noreferrer">serializd</a> ·
+      <a href="https://anilist.co/user/akaMusti/" target="_blank" rel="noopener noreferrer">anilist</a>
+    </p>
+  </section>
+
+  <p class="best">en iyi 800x600 çözünürlükte görüntülenir</p>
+  <footer>&copy; 2026 akaMusti — tüm hakları saklıdır</footer>
 </div>
 </body>
 </html>
