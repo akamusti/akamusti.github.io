@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>akaMusti'nin Ana Sayfası ★</title>
+<title>akaMusti</title>
 <meta name="description" content="akaMusti — kişisel ana sayfa. Projeler, yazılar, defter ve linkler.">
 <meta name="theme-color" content="#0b0d10">
-<meta property="og:title" content="akaMusti'nin Ana Sayfası">
+<meta property="og:title" content="akaMusti">
 <meta property="og:description" content="projeler, yazılar, defter ve linkler">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://akamusti.github.io/">
 <meta property="og:image" content="https://akamusti.github.io/avatar.jpg">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%230b0d10"/><rect x="2" y="2" width="96" height="96" rx="20" fill="none" stroke="%237ee787" stroke-opacity="0.35" stroke-width="3"/><text x="50" y="69" font-size="54" font-family="monospace" font-weight="bold" text-anchor="middle" fill="%237ee787">i</text></svg>'>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%230b0d10"/><rect x="2" y="2" width="96" height="96" rx="20" fill="none" stroke="%23b388ff" stroke-opacity="0.35" stroke-width="3"/><text x="50" y="69" font-size="54" font-family="monospace" font-weight="bold" text-anchor="middle" fill="%23b388ff">i</text></svg>'>
 <style>
   :root {
     --bg: #0b0d10;
@@ -20,14 +20,14 @@
     --muted: #8b93a1;
     --dim: #464c56;
     --divider: rgba(255, 255, 255, 0.07);
-    --accent: #7ee787;
+    --accent: #b388ff;
     --radius: 12px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   ::selection {
-    background: rgba(126, 231, 135, 0.25);
+    background: rgba(179, 136, 255, 0.25);
     color: var(--fg);
   }
 
@@ -36,8 +36,8 @@
     color: var(--fg);
     background-color: var(--bg);
     background-image:
-      radial-gradient(ellipse 85% 45% at 50% -18%, rgba(126, 231, 135, 0.07), transparent),
-      radial-gradient(ellipse 55% 35% at 85% 110%, rgba(126, 231, 135, 0.04), transparent);
+      radial-gradient(ellipse 85% 45% at 50% -18%, rgba(179, 136, 255, 0.07), transparent),
+      radial-gradient(ellipse 55% 35% at 85% 110%, rgba(179, 136, 255, 0.04), transparent);
     background-attachment: fixed;
     min-height: 100vh;
     display: flex;
@@ -71,18 +71,12 @@
     margin-bottom: 4px;
   }
 
-  .tagline {
-    font-size: 18px;
-    color: var(--muted);
-    margin-bottom: 16px;
-  }
-
   .photo {
     width: 110px;
     height: 110px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px double rgba(126, 231, 135, 0.5);
+    border: 3px double rgba(179, 136, 255, 0.5);
     margin-bottom: 8px;
   }
 
@@ -90,7 +84,7 @@
     width: 180px;
     height: 1px;
     margin: 12px auto 20px;
-    background: linear-gradient(90deg, transparent, rgba(126, 231, 135, 0.45), transparent);
+    background: linear-gradient(90deg, transparent, rgba(179, 136, 255, 0.45), transparent);
   }
 
   marquee {
@@ -163,13 +157,6 @@
     margin: 6px 0 2px;
   }
 
-  .best {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 11px;
-    color: var(--dim);
-    margin-bottom: 4px;
-  }
-
   footer {
     margin-top: 16px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -188,7 +175,6 @@
 <div class="shell">
   <p class="welcome">·.· hoşgeldin ·.·</p>
   <h1>akaMusti</h1>
-  <p class="tagline">burası benim internet köşem</p>
 
   <img class="photo" src="avatar.jpg" alt="akaMusti">
 
@@ -240,7 +226,6 @@
     <img class="cat" src="https://blob.gifcities.org/gifcities/FKVFHB3JOI77PH7SYWEM36X4ZSQWLLUD.gif" width="64" height="64" alt="dans eden kedi">
   </section>
 
-  <p class="best">en iyi 800x600 çözünürlükte görüntülenir</p>
   <footer>&copy; 2026 akaMusti — tüm hakları saklıdır</footer>
 </div>
 </body>
