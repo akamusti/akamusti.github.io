@@ -1,0 +1,164 @@
+---
+layout: null
+title: defter
+description: akaMusti — ziyaretçi defteri.
+---
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>defter — akaMusti</title>
+<meta name="description" content="akaMusti — ziyaretçi defteri.">
+<meta name="theme-color" content="#0b0d10">
+<meta property="og:title" content="defter — akaMusti">
+<meta property="og:description" content="ziyaretçi defteri">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://akamusti.github.io/defter/">
+<meta property="og:image" content="https://akamusti.github.io/avatar.jpg">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%230b0d10"/><rect x="2" y="2" width="96" height="96" rx="20" fill="none" stroke="%237ee787" stroke-opacity="0.35" stroke-width="3"/><text x="50" y="69" font-size="54" font-family="monospace" font-weight="bold" text-anchor="middle" fill="%237ee787">i</text></svg>'>
+<style>
+  :root {
+    --bg: #0b0d10;
+    --fg: #e2e5e8;
+    --muted: #8b93a1;
+    --dim: #464c56;
+    --divider: rgba(255, 255, 255, 0.07);
+    --accent: #7ee787;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  ::selection {
+    background: rgba(126, 231, 135, 0.25);
+    color: var(--fg);
+  }
+
+  body {
+    font-family: "Times New Roman", Times, serif;
+    color: var(--fg);
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(ellipse 85% 45% at 50% -18%, rgba(126, 231, 135, 0.07), transparent),
+      radial-gradient(ellipse 55% 35% at 85% 110%, rgba(126, 231, 135, 0.04), transparent);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+  }
+
+  .shell {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 64px 24px 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  h1 {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 34px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+
+  .sub {
+    color: var(--muted);
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  .divider-img {
+    max-width: 100%;
+    height: auto;
+    margin: 8px 0 20px;
+  }
+
+  .cat {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    image-rendering: pixelated;
+  }
+
+  .blink {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    animation: blink 1.2s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    0%, 55% { opacity: 1; }
+    56%, 100% { opacity: 0; }
+  }
+
+  .guestbook {
+    width: 100%;
+    text-align: left;
+    border: 1px solid var(--divider);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .back {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .back:hover { color: var(--accent); }
+
+  footer {
+    margin-top: 24px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 11px;
+    color: var(--dim);
+  }
+
+  @media (max-width: 480px) {
+    .shell { padding-top: 48px; }
+    h1 { font-size: 27px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <h1>★ ziyaretçi defteri ★</h1>
+  <p class="sub">uğradıysan bir satır bırak, çekinme</p>
+
+  <img class="divider-img" src="https://blob.gifcities.org/gifcities/3LLFJNCASJRA6XECOTCY5RIIJ3NOP4HT.gif" width="564" height="24" alt="yıldızlı ayraç">
+
+  <img class="cat" src="https://blob.gifcities.org/gifcities/FKVFHB3JOI77PH7SYWEM36X4ZSQWLLUD.gif" width="64" height="64" alt="dans eden kedi">
+
+  <p class="blink">*.·.· defter açık ·.·.*</p>
+
+  <div class="guestbook">
+    <script src="https://utteranc.es/client.js"
+      repo="akamusti/akamusti.github.io"
+      issue-term="pathname"
+      label="defter"
+      theme="github-dark"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+
+  <a class="back" href="/">&larr; ana sayfa</a>
+
+  <footer>&copy; 2026 akaMusti</footer>
+</div>
+</body>
+</html>
