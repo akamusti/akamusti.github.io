@@ -54,6 +54,51 @@
   }
   #sparkles { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
 
+  /* top-left menu */
+  .menu { position: fixed; top: 18px; left: 18px; z-index: 10; }
+  .menu-btn {
+    width: 44px; height: 44px; border-radius: 14px;
+    border: 1px solid var(--stroke);
+    background: var(--card);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+    color: var(--fg); font-size: 19px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .menu-btn:hover {
+    background: rgba(125, 240, 255, 0.12);
+    border-color: rgba(125, 240, 255, 0.5);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), 0 0 20px rgba(125, 240, 255, 0.15);
+    transform: translateY(-1px);
+  }
+  .menu-drop {
+    margin-top: 8px;
+    min-width: 150px;
+    border-radius: 14px;
+    border: 1px solid var(--stroke);
+    background: var(--card);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+    padding: 6px;
+    display: none;
+    overflow: hidden;
+  }
+  .menu.open .menu-drop { display: block; }
+  .menu-drop a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 14px; font-weight: 600;
+    transition: background 0.15s ease;
+  }
+  .menu-drop a:hover { background: rgba(125, 240, 255, 0.12); }
+  .menu-drop a span.ic { color: var(--accent); }
+
   .wrap { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 14px; }
 
   .card {
@@ -183,6 +228,13 @@
 <div class="bg"></div>
 <canvas id="sparkles"></canvas>
 
+<nav class="menu" id="menu">
+  <button class="menu-btn" id="menuBtn" aria-label="menü" aria-expanded="false">☰</button>
+  <div class="menu-drop">
+    <a href="/blog/"><span class="ic">✎</span> blog</a>
+  </div>
+</nav>
+
 <div class="wrap">
   <div class="card">
     <div class="avatar-wrap">
@@ -237,6 +289,23 @@
 </div>
 
 <script>
+  // top-left menu toggle
+  const menu = document.getElementById("menu");
+  const menuBtn = document.getElementById("menuBtn");
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = menu.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+    menuBtn.textContent = open ? "✕" : "☰";
+  });
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target)) {
+      menu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    }
+  });
+
   // animated tab title
   const titles = ["akaMusti", "@akamusti", "Ur Virtual Puppyboy :3"];
   let ti = 0;
