@@ -10,113 +10,132 @@
 <meta property="og:description" content="{{ page.description | default: site.description }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:image" content="{{ site.url }}/avatar.jpg">
+<meta property="og:image" content="{{ site.url }}/img/pfp.jpg">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%230b0d10"/><rect x="2" y="2" width="96" height="96" rx="20" fill="none" stroke="%23b388ff" stroke-opacity="0.35" stroke-width="3"/><text x="50" y="69" font-size="54" font-family="monospace" font-weight="bold" text-anchor="middle" fill="%23b388ff">i</text></svg>'>
+<link rel="icon" href="/img/pfp.jpg">
 <style>
   :root {
     --bg: #0b0d10;
-    --fg: #e2e5e8;
-    --muted: #8b93a1;
-    --dim: #464c56;
-    --divider: rgba(255, 255, 255, 0.07);
-    --accent: #b388ff;
-    --radius: 12px;
+    --fg: #eef2f3;
+    --muted: #9aa4ad;
+    --accent: #7df0ff;
+    --accent2: #ff9d6b;
+    --card: rgba(13, 17, 20, 0.62);
+    --stroke: rgba(125, 240, 255, 0.22);
+    --radius: 20px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  ::selection {
-    background: rgba(179, 136, 255, 0.25);
-    color: var(--fg);
-  }
-
   body {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
     color: var(--fg);
-    background-color: var(--bg);
-    background-image:
-      radial-gradient(ellipse 85% 45% at 50% -18%, rgba(179, 136, 255, 0.07), transparent),
-      radial-gradient(ellipse 55% 35% at 85% 110%, rgba(179, 136, 255, 0.04), transparent);
-    background-attachment: fixed;
+    background: var(--bg);
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 72px 16px 32px;
     line-height: 1.6;
   }
+
+  .bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url("/img/wallpaper.jpg") center / cover no-repeat fixed;
+  }
+  .bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 30%, transparent 30%, rgba(5, 8, 10, 0.55) 100%),
+      linear-gradient(180deg, rgba(5, 8, 10, 0.45), rgba(5, 8, 10, 0.78));
+  }
+
+  /* top-left menu (same as homepage) */
+  .menu { position: fixed; top: 18px; left: 18px; z-index: 10; }
+  .menu-btn {
+    width: 44px; height: 44px; border-radius: 14px;
+    border: 1px solid var(--stroke);
+    background: var(--card);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    color: var(--fg); font-size: 19px; cursor: pointer;
+  }
+  .menu-btn:hover { background: rgba(125, 240, 255, 0.12); border-color: rgba(125, 240, 255, 0.5); }
+  .menu-drop {
+    margin-top: 8px; min-width: 150px; border-radius: 14px;
+    border: 1px solid var(--stroke); background: var(--card);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    padding: 6px; display: none;
+  }
+  .menu.open .menu-drop { display: block; }
+  .menu-drop a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border-radius: 10px;
+    color: var(--fg); text-decoration: none;
+    font-size: 14px; font-weight: 600;
+  }
+  .menu-drop a:hover { background: rgba(125, 240, 255, 0.12); }
+  .menu-drop a span.ic { color: var(--accent); }
 
   .shell {
     width: 100%;
     max-width: 640px;
-    margin: 0 auto;
-    padding: 56px 24px 40px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(125, 240, 255, 0.07), inset 0 1px 0 rgba(255,255,255,0.08);
+    padding: 32px 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .shell::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(125,240,255,0.7), transparent);
   }
 
-  header { margin-bottom: 20px; }
+  header { text-align: center; margin-bottom: 8px; }
 
   .avatar {
-    width: 72px;
-    height: 72px;
+    width: 72px; height: 72px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px double rgba(179, 136, 255, 0.5);
+    border: 2px solid rgba(125, 240, 255, 0.55);
+    box-shadow: 0 0 24px rgba(125, 240, 255, 0.3);
     margin-bottom: 8px;
   }
 
-  .titles h1 {
-    font-family: "Comic Sans MS", "Chalkboard SE", "Segoe Print", sans-serif;
-    font-size: 28px;
-    font-weight: normal;
-  }
+  .titles h1 { font-size: 22px; font-weight: 700; }
+  .titles h1 a { color: var(--fg); text-decoration: none; }
+  .titles h1 a:hover { color: var(--accent); }
 
-  .titles h1 a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  main { width: 100%; margin-top: 12px; }
 
   .back {
-    align-self: flex-start;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    display: inline-block;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
     font-size: 12px;
     color: var(--muted);
     text-decoration: none;
     margin-bottom: 12px;
-    transition: color 0.15s ease;
   }
-
   .back:hover { color: var(--accent); }
 
-  .page-title {
-    font-family: "Comic Sans MS", "Chalkboard SE", "Segoe Print", sans-serif;
-    font-weight: normal;
-    font-size: 32px;
-    color: var(--accent);
-    margin-bottom: 4px;
-  }
-
-  .sub {
-    color: var(--muted);
-    font-size: 17px;
-    margin-bottom: 20px;
-  }
+  .page-title { font-size: 30px; font-weight: 700; margin-bottom: 2px; }
+  .sub { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
 
   .rule {
-    width: 120px;
-    height: 1px;
-    background: var(--divider);
-    margin: 10px auto 18px;
+    height: 1px; margin: 16px 0;
+    background: linear-gradient(90deg, transparent, rgba(125,240,255,0.35), transparent);
   }
 
   .post-box {
@@ -125,132 +144,92 @@
     align-items: baseline;
     gap: 12px;
     padding: 14px 18px;
-    margin-bottom: 12px;
-    border: 1px solid var(--divider);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.02);
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.045);
     text-decoration: none;
     color: var(--fg);
-    text-align: left;
-    transition: border-color 0.15s ease;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   }
-
-  .post-box:hover { border-color: rgba(179, 136, 255, 0.4); }
-
-  .pb-title {
-    flex: 1;
-    font-size: 18px;
+  .post-box:hover {
+    transform: translateY(-1px);
+    background: rgba(125, 240, 255, 0.10);
+    border-color: rgba(125, 240, 255, 0.4);
+    box-shadow: 0 6px 24px rgba(125, 240, 255, 0.15);
   }
-
-  .post-box:hover .pb-title { color: var(--accent); }
-
+  .pb-title { flex: 1; font-size: 16px; font-weight: 600; }
   .pb-date {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 11px;
-    color: var(--dim);
-    white-space: nowrap;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11px; color: var(--muted); white-space: nowrap;
   }
+  .blog-empty { padding: 13px 0; font-size: 15px; color: var(--muted); }
 
-  .blog-empty {
-    padding: 13px 0;
-    font-size: 16px;
-    color: var(--muted);
-  }
-
-  .post-title {
-    font-family: "Comic Sans MS", "Chalkboard SE", "Segoe Print", sans-serif;
-    font-weight: normal;
-    font-size: 30px;
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-
+  .post-title { font-size: 27px; font-weight: 700; line-height: 1.25; margin-bottom: 8px; }
   .post-meta {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    color: var(--dim);
-    margin-bottom: 24px;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11px; letter-spacing: 0.08em;
+    color: var(--muted); margin-bottom: 20px;
   }
-
-  .post-content {
-    font-size: 17px;
-    line-height: 1.75;
-    color: var(--fg);
-    text-align: left;
-    width: 100%;
-  }
-
+  .post-content { font-size: 16px; line-height: 1.75; }
   .post-content p { margin-bottom: 1.25em; }
-
-  .post-content h2 {
-    font-family: "Comic Sans MS", "Chalkboard SE", "Segoe Print", sans-serif;
-    font-weight: normal;
-    font-size: 22px;
-    margin: 1.5em 0 0.6em;
-  }
-
-  .post-content h3 { font-size: 18px; margin: 1.5em 0 0.5em; }
-
+  .post-content h2 { font-size: 21px; margin: 1.5em 0 0.6em; }
+  .post-content h3 { font-size: 17px; margin: 1.5em 0 0.5em; }
   .post-content a { color: var(--accent); }
-
   .post-content ul, .post-content ol { margin: 0 0 1.25em 1.25em; }
-
   .post-content li { margin-bottom: 0.4em; }
-
   .post-content blockquote {
-    border-left: 2px solid rgba(179, 136, 255, 0.4);
-    padding-left: 16px;
-    margin: 0 0 1.25em;
-    color: var(--muted);
+    border-left: 2px solid rgba(125, 240, 255, 0.4);
+    padding-left: 16px; margin: 0 0 1.25em; color: var(--muted);
   }
-
   .post-content code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
     font-size: 0.85em;
     background: rgba(255, 255, 255, 0.06);
-    padding: 2px 6px;
-    border-radius: 6px;
+    padding: 2px 6px; border-radius: 6px;
   }
-
   .post-content pre {
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--divider);
-    border-radius: 8px;
-    padding: 16px;
-    overflow-x: auto;
-    margin-bottom: 1.25em;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 12px; padding: 16px;
+    overflow-x: auto; margin-bottom: 1.25em;
   }
-
   .post-content pre code { background: none; padding: 0; }
-
-  .post-content img { max-width: 100%; border-radius: 8px; }
-
+  .post-content img { max-width: 100%; border-radius: 12px; }
   .post-content hr {
-    border: none;
-    border-top: 1px solid var(--divider);
-    margin: 2em auto;
-    width: 120px;
+    border: none; border-top: 1px solid rgba(255,255,255,0.12);
+    margin: 2em auto; width: 120px;
   }
 
   footer {
-    margin-top: 28px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 11px;
-    color: var(--dim);
+    margin-top: 24px;
+    text-align: center;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11px; color: var(--muted);
   }
 
   @media (max-width: 480px) {
-    .shell { padding-top: 40px; }
-    .page-title { font-size: 27px; }
-    .post-title { font-size: 25px; }
+    body { padding: 64px 12px 24px; }
+    .shell { padding: 24px 20px 22px; }
+    .page-title { font-size: 25px; }
+    .post-title { font-size: 23px; }
   }
 </style>
 </head>
 <body>
+<div class="bg"></div>
+
+<nav class="menu" id="menu">
+  <button class="menu-btn" id="menuBtn" aria-label="menü" aria-expanded="false">☰</button>
+  <div class="menu-drop">
+    <a href="/"><span class="ic">⌂</span> ana sayfa</a>
+    <a href="/blog/"><span class="ic">✎</span> blog</a>
+  </div>
+</nav>
+
 <div class="shell">
   <header>
-    <img class="avatar" src="/avatar.jpg" alt="akaMusti profile photo">
+    <img class="avatar" src="/img/pfp.jpg" alt="akaMusti">
     <div class="titles">
       <h1><a href="/">akaMusti</a></h1>
     </div>
@@ -262,5 +241,23 @@
 
   <footer>&copy; 2026 akaMusti</footer>
 </div>
+
+<script>
+  const menu = document.getElementById("menu");
+  const menuBtn = document.getElementById("menuBtn");
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = menu.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+    menuBtn.textContent = open ? "✕" : "☰";
+  });
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target)) {
+      menu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    }
+  });
+</script>
 </body>
 </html>
