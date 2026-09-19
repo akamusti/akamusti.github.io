@@ -1,234 +1,60 @@
 ---
-layout: null
+layout: default
 title: defter
 description: akaMusti — ziyaretçi defteri.
 ---
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>defter — akaMusti</title>
-<meta name="description" content="akaMusti — ziyaretçi defteri.">
-<meta name="theme-color" content="#0b0d10">
-<meta property="og:title" content="defter — akaMusti">
-<meta property="og:description" content="ziyaretçi defteri">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://akamusti.github.io/defter/">
-<meta property="og:image" content="https://akamusti.github.io/avatar.jpg">
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%230b0d10"/><rect x="2" y="2" width="96" height="96" rx="20" fill="none" stroke="%23b388ff" stroke-opacity="0.35" stroke-width="3"/><text x="50" y="69" font-size="54" font-family="monospace" font-weight="bold" text-anchor="middle" fill="%23b388ff">i</text></svg>'>
+<a class="back" href="/">&larr; ana sayfa</a>
+
+<h1 class="page-title">ziyaretçi defteri</h1>
+<p class="sub">uğradıysan bir satır bırak, çekinme</p>
+
+<div class="rule"></div>
+
 <style>
-  :root {
-    --bg: #0b0d10;
-    --fg: #e2e5e8;
-    --muted: #8b93a1;
-    --dim: #464c56;
-    --divider: rgba(255, 255, 255, 0.07);
-    --accent: #b388ff;
-    --card: rgba(22, 19, 30, 0.72);
-    --stroke: rgba(179, 136, 255, 0.25);
-    --radius: 12px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  /* top-left menu (diğer sayfalarla aynı) */
-  .menu { position: fixed; top: 18px; left: 18px; z-index: 10; }
-  .menu-btn {
-    width: 44px; height: 44px; border-radius: 14px;
-    border: 1px solid var(--stroke);
-    background: var(--card);
-    color: var(--fg); font-size: 19px; cursor: pointer;
-  }
-  .menu-drop {
-    margin-top: 8px; min-width: 228px; border-radius: 16px;
-    border: 1px solid var(--stroke); background: var(--card);
-    padding: 6px; display: none; overflow: hidden;
-  }
-  .menu.open .menu-drop { display: block; }
-  .menu-head {
-    padding: 8px 12px 6px;
-    font-size: 11px;
-    font-family: ui-monospace, Menlo, Consolas, monospace;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-  }
-  .menu-drop a {
-    display: flex; align-items: center; gap: 12px;
-    padding: 9px 12px; border-radius: 10px;
-    color: var(--fg); text-decoration: none;
-    font-family: "Segoe UI", system-ui, sans-serif;
-  }
-  .menu-drop a:hover { background: rgba(179, 136, 255, 0.12); }
-  .menu-drop a[aria-current="page"] { background: rgba(179, 136, 255, 0.14); }
-  .menu-drop a .ic {
-    width: 32px; height: 32px; flex: none;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 10px;
-    background: rgba(179, 136, 255, 0.12);
-    color: var(--accent);
-    font-size: 15px;
-  }
-  .menu-drop a .tx b { display: block; font-size: 14px; font-weight: 700; }
-  .menu-drop a .tx small { display: block; font-size: 11.5px; color: var(--muted); font-weight: 500; }
-
-  ::selection {
-    background: rgba(179, 136, 255, 0.25);
-    color: var(--fg);
-  }
-
-  body {
-    font-family: "Times New Roman", Times, serif;
-    color: var(--fg);
-    background-color: var(--bg);
-    background-image:
-      radial-gradient(ellipse 85% 45% at 50% -18%, rgba(179, 136, 255, 0.07), transparent),
-      radial-gradient(ellipse 55% 35% at 85% 110%, rgba(179, 136, 255, 0.04), transparent);
-    background-attachment: fixed;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.6;
-  }
-
-  .shell {
-    width: 100%;
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 64px 24px 40px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  h1 {
-    font-family: "Comic Sans MS", "Chalkboard SE", "Segoe Print", sans-serif;
-    font-size: 34px;
-    color: var(--accent);
-    letter-spacing: 0.02em;
-    margin-bottom: 4px;
-  }
-
-  .sub {
-    color: var(--muted);
-    font-size: 17px;
-    margin-bottom: 20px;
-  }
-
-  .rule {
-    width: 180px;
-    height: 1px;
-    margin: 8px auto 20px;
-    background: linear-gradient(90deg, transparent, rgba(179, 136, 255, 0.45), transparent);
-  }
-
-  .puppy {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 20px;
+  .defter-hero { text-align: center; margin: 4px 0 16px; }
+  .defter-hero .puppy {
+    width: 64px; height: 64px;
     image-rendering: pixelated;
+    border-radius: 12px;
   }
-
-  .blink {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 24px;
+  .defter-hero .blink {
+    margin-top: 8px;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12px; color: var(--muted);
     animation: blink 1.2s steps(1) infinite;
   }
-
-  @keyframes blink {
-    0%, 55% { opacity: 1; }
-    56%, 100% { opacity: 0; }
-  }
-
+  @keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
   .guestbook {
-    width: 100%;
-    text-align: left;
-    border: 1px solid var(--divider);
-    border-radius: var(--radius);
-    background: rgba(255, 255, 255, 0.02);
-    padding: 20px;
-    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px 16px;
+    min-height: 120px;
   }
-
-  .back {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 12px;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.15s ease;
-  }
-
-  .back:hover { color: var(--accent); }
-
-  footer {
-    margin-top: 24px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 11px;
-    color: var(--dim);
-  }
-
-  @media (max-width: 480px) {
-    .shell { padding-top: 48px; }
-    h1 { font-size: 27px; }
-  }
+  .guestbook .utterances { max-width: 100%; }
 </style>
-</head>
-<body>
-<nav class="menu" id="menu">
-  <button class="menu-btn" id="menuBtn" aria-label="menü" aria-expanded="false">☰</button>
-  <div class="menu-drop">
-    <div class="menu-head">sayfalar</div>
-    <a href="/"><span class="ic">⌂</span><span class="tx"><b>ana sayfa</b><small>başa dön</small></span></a>
-    <a href="/blog/"><span class="ic">✎</span><span class="tx"><b>günlük</b><small>yazılarım</small></span></a>
-    <a href="/defter/" aria-current="page"><span class="ic">♥</span><span class="tx"><b>defter</b><small>ziyaretçi defteri</small></span></a>
-    <a href="/projeler/"><span class="ic">⌘</span><span class="tx"><b>projeler</b><small>yaptıklarım</small></span></a>
-  </div>
-</nav>
-<div class="shell">
-  <h1>ziyaretçi defteri</h1>
-  <p class="sub">uğradıysan bir satır bırak, çekinme</p>
 
-  <div class="rule"></div>
-
+<div class="defter-hero">
   <img class="puppy" src="/img/puppy.gif" width="64" height="64" alt="kalpli puppy" loading="lazy" decoding="async">
-
   <p class="blink">*.·.· defter açık ·.·.*</p>
-
-  <div class="guestbook">
-    <script src="https://utteranc.es/client.js"
-      repo="akamusti/akamusti.github.io"
-      issue-term="pathname"
-      label="defter"
-      theme="github-dark"
-      crossorigin="anonymous"
-      async>
-    </script>
-  </div>
-
-  <a class="back" href="/">&larr; ana sayfa</a>
-
-  <footer>&copy; 2026 akaMusti</footer>
 </div>
+
+<div class="guestbook">
+  <script id="utterances" src="https://utteranc.es/client.js"
+    repo="akamusti/akamusti.github.io"
+    issue-term="pathname"
+    label="defter"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+
 <script>
-  const menu = document.getElementById("menu");
-  const menuBtn = document.getElementById("menuBtn");
-  menuBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const open = menu.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", open);
-    menuBtn.textContent = open ? "✕" : "☰";
-  });
-  document.addEventListener("click", (e) => {
-    if (!menu.contains(e.target)) {
-      menu.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.textContent = "☰";
+  // açık tema seçiliyse yorumları da açık göm (async yüklenmeden önce çalışır)
+  try {
+    if (document.documentElement.getAttribute("data-theme") === "flexoki-light") {
+      document.getElementById("utterances").setAttribute("theme", "github-light");
     }
-  });
+  } catch (e) {}
 </script>
-</body>
-</html>

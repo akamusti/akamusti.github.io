@@ -247,7 +247,7 @@
     <div class="menu-head">sayfalar</div>
     <a href="/"><span class="ic">⌂</span><span class="tx"><b>ana sayfa</b><small>başa dön</small></span></a>
     <a href="/blog/"{% if page.url contains '/blog' %} aria-current="page"{% endif %}><span class="ic">✎</span><span class="tx"><b>günlük</b><small>yazılarım</small></span></a>
-    <a href="/defter/"><span class="ic">♥</span><span class="tx"><b>defter</b><small>ziyaretçi defteri</small></span></a>
+    <a href="/defter/"{% if page.url contains '/defter' %} aria-current="page"{% endif %}><span class="ic">♥</span><span class="tx"><b>defter</b><small>ziyaretçi defteri</small></span></a>
     <a href="/projeler/"{% if page.url contains '/projeler' %} aria-current="page"{% endif %}><span class="ic">⌘</span><span class="tx"><b>projeler</b><small>yaptıklarım</small></span></a>
   </div>
 </nav>
