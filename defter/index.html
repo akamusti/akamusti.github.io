@@ -25,10 +25,52 @@ description: akaMusti — ziyaretçi defteri.
     --dim: #464c56;
     --divider: rgba(255, 255, 255, 0.07);
     --accent: #b388ff;
+    --card: rgba(22, 19, 30, 0.72);
+    --stroke: rgba(179, 136, 255, 0.25);
     --radius: 12px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* top-left menu (diğer sayfalarla aynı) */
+  .menu { position: fixed; top: 18px; left: 18px; z-index: 10; }
+  .menu-btn {
+    width: 44px; height: 44px; border-radius: 14px;
+    border: 1px solid var(--stroke);
+    background: var(--card);
+    color: var(--fg); font-size: 19px; cursor: pointer;
+  }
+  .menu-drop {
+    margin-top: 8px; min-width: 228px; border-radius: 16px;
+    border: 1px solid var(--stroke); background: var(--card);
+    padding: 6px; display: none; overflow: hidden;
+  }
+  .menu.open .menu-drop { display: block; }
+  .menu-head {
+    padding: 8px 12px 6px;
+    font-size: 11px;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .menu-drop a {
+    display: flex; align-items: center; gap: 12px;
+    padding: 9px 12px; border-radius: 10px;
+    color: var(--fg); text-decoration: none;
+    font-family: "Segoe UI", system-ui, sans-serif;
+  }
+  .menu-drop a:hover { background: rgba(179, 136, 255, 0.12); }
+  .menu-drop a[aria-current="page"] { background: rgba(179, 136, 255, 0.14); }
+  .menu-drop a .ic {
+    width: 32px; height: 32px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+    background: rgba(179, 136, 255, 0.12);
+    color: var(--accent);
+    font-size: 15px;
+  }
+  .menu-drop a .tx b { display: block; font-size: 14px; font-weight: 700; }
+  .menu-drop a .tx small { display: block; font-size: 11.5px; color: var(--muted); font-weight: 500; }
 
   ::selection {
     background: rgba(179, 136, 255, 0.25);
@@ -136,6 +178,16 @@ description: akaMusti — ziyaretçi defteri.
 </style>
 </head>
 <body>
+<nav class="menu" id="menu">
+  <button class="menu-btn" id="menuBtn" aria-label="menü" aria-expanded="false">☰</button>
+  <div class="menu-drop">
+    <div class="menu-head">sayfalar</div>
+    <a href="/"><span class="ic">⌂</span><span class="tx"><b>ana sayfa</b><small>başa dön</small></span></a>
+    <a href="/blog/"><span class="ic">✎</span><span class="tx"><b>günlük</b><small>yazılarım</small></span></a>
+    <a href="/defter/" aria-current="page"><span class="ic">♥</span><span class="tx"><b>defter</b><small>ziyaretçi defteri</small></span></a>
+    <a href="/projeler/"><span class="ic">⌘</span><span class="tx"><b>projeler</b><small>yaptıklarım</small></span></a>
+  </div>
+</nav>
 <div class="shell">
   <h1>ziyaretçi defteri</h1>
   <p class="sub">uğradıysan bir satır bırak, çekinme</p>
@@ -161,5 +213,22 @@ description: akaMusti — ziyaretçi defteri.
 
   <footer>&copy; 2026 akaMusti</footer>
 </div>
+<script>
+  const menu = document.getElementById("menu");
+  const menuBtn = document.getElementById("menuBtn");
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = menu.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+    menuBtn.textContent = open ? "✕" : "☰";
+  });
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target)) {
+      menu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    }
+  });
+</script>
 </body>
 </html>

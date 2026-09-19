@@ -80,8 +80,8 @@
   }
   .menu-drop {
     margin-top: 8px;
-    min-width: 150px;
-    border-radius: 14px;
+    min-width: 228px;
+    border-radius: 16px;
     border: 1px solid var(--stroke);
     background: var(--card);
     backdrop-filter: blur(18px) saturate(1.2);
@@ -92,17 +92,32 @@
     overflow: hidden;
   }
   .menu.open .menu-drop { display: block; }
+  .menu-head {
+    padding: 8px 12px 6px;
+    font-size: 11px;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
   .menu-drop a {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 12px;
+    display: flex; align-items: center; gap: 12px;
+    padding: 9px 12px;
     border-radius: 10px;
     color: var(--fg);
     text-decoration: none;
-    font-size: 14px; font-weight: 600;
     transition: background 0.15s ease;
   }
   .menu-drop a:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
-  .menu-drop a span.ic { color: var(--accent); }
+  .menu-drop a .ic {
+    width: 32px; height: 32px; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    font-size: 15px;
+  }
+  .menu-drop a .tx b { display: block; font-size: 14px; font-weight: 700; }
+  .menu-drop a .tx small { display: block; font-size: 11.5px; color: var(--muted); font-weight: 500; }
 
   .wrap { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 14px; }
 
@@ -237,7 +252,10 @@
 <nav class="menu" id="menu">
   <button class="menu-btn" id="menuBtn" aria-label="menü" aria-expanded="false">☰</button>
   <div class="menu-drop">
-    <a href="/blog/"><span class="ic">✎</span> blog</a>
+    <div class="menu-head">sayfalar</div>
+    <a href="/blog/"><span class="ic">✎</span><span class="tx"><b>günlük</b><small>yazılarım</small></span></a>
+    <a href="/defter/"><span class="ic">♥</span><span class="tx"><b>defter</b><small>ziyaretçi defteri</small></span></a>
+    <a href="/projeler/"><span class="ic">⌘</span><span class="tx"><b>projeler</b><small>yaptıklarım</small></span></a>
   </div>
 </nav>
 
