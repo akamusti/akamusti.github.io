@@ -255,10 +255,18 @@
   }
 
   @media (max-width: 480px) {
-    body { padding: 64px 12px 24px; }
+    body { padding: 104px 12px 24px; }
+    .menu { top: 16px; left: 16px; }
+    .menu-drop { min-width: 0; width: calc(100vw - 32px); max-width: 340px; }
+    .menu-drop a { gap: 12px; padding: 12px 14px; }
+    .menu-drop a .ic { width: 44px; height: 44px; border-radius: 12px; font-size: 19px; }
+    .menu-drop a .tx b { font-size: 16px; }
+    .menu-drop a .tx small { font-size: 13px; }
     .shell { padding: 24px 20px 22px; }
     .page-title { font-size: 25px; }
     .post-title { font-size: 23px; }
+    .post-content { font-size: 15px; }
+    .post-box { padding: 12px 14px; }
   }
 </style>
 </head>

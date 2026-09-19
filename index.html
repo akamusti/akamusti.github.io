@@ -263,9 +263,20 @@
     font-size: 11.5px; color: var(--muted);
   }
   @media (max-width: 480px) {
-    body { padding: 20px 12px; }
+    body { padding: 96px 12px 24px; }
+    .menu { top: 16px; left: 16px; }
+    .menu-drop { min-width: 0; width: calc(100vw - 32px); max-width: 340px; }
+    .menu-drop a { gap: 12px; padding: 12px 14px; }
+    .menu-drop a .ic { width: 44px; height: 44px; border-radius: 12px; font-size: 19px; }
+    .menu-drop a .tx b { font-size: 16px; }
+    .menu-drop a .tx small { font-size: 13px; }
     .card { padding: 26px 20px 22px; }
-    .vol input { width: 48px; }
+    .avatar-wrap, .avatar { width: 96px; height: 96px; }
+    h1 { font-size: 24px; }
+    .player { padding: 12px 14px; gap: 10px; }
+    .disc { width: 40px; height: 40px; }
+    .vol { display: none; }
+    .play { width: 46px; height: 46px; }
   }
 </style>
 </head>

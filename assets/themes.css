@@ -234,3 +234,10 @@
 /* tema geçişini yumuşat */
 body, .card, .shell, .player, .menu-btn, .menu-drop, .theme-btn, .theme-panel,
 .link-btn, .play, .post-box { transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
+
+/* mobil: paneller ekrana sığsın, butonlar kenara yaklaşsın */
+@media (max-width: 480px) {
+  .theme { top: 16px; right: 16px; }
+  .theme-panel { width: calc(100vw - 32px); max-width: 250px; }
+  .theme-opt { padding: 11px 10px; font-size: 14px; }
+}
