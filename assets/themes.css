@@ -1,0 +1,233 @@
+/* akaMusti themes — Omarchy tarzı: tüm siteyi değişkenlerle boyar.
+   Yeni tema eklemek için: aşağıya [data-theme="..."] bloğu + theme.js'teki THEMES listesine ekle. */
+:root,
+:root[data-theme="abyss"] {
+  color-scheme: dark;
+  --bg: #0b0d10;
+  --fg: #eef2f3;
+  --muted: #9aa4ad;
+  --accent: #7df0ff;
+  --accent2: #ff9d6b;
+  --card: rgba(13, 17, 20, 0.62);
+  --stroke: rgba(125, 240, 255, 0.22);
+  --shade1: rgba(5, 8, 10, 0.45);
+  --shade2: rgba(5, 8, 10, 0.72);
+  --meta: #0b0d10;
+}
+:root[data-theme="tokyo-night"] {
+  color-scheme: dark;
+  --bg: #1a1b26;
+  --fg: #c0caf5;
+  --muted: #848cb5;
+  --accent: #7aa2f7;
+  --accent2: #bb9af7;
+  --card: rgba(26, 27, 38, 0.72);
+  --stroke: rgba(122, 162, 247, 0.28);
+  --shade1: rgba(10, 11, 22, 0.5);
+  --shade2: rgba(10, 11, 22, 0.78);
+  --meta: #1a1b26;
+}
+:root[data-theme="gruvbox"] {
+  color-scheme: dark;
+  --bg: #282828;
+  --fg: #ebdbb2;
+  --muted: #a89984;
+  --accent: #fabd2f;
+  --accent2: #fe8019;
+  --card: rgba(40, 40, 40, 0.78);
+  --stroke: rgba(250, 189, 47, 0.28);
+  --shade1: rgba(20, 16, 8, 0.5);
+  --shade2: rgba(20, 16, 8, 0.8);
+  --meta: #282828;
+}
+:root[data-theme="catppuccin"] {
+  color-scheme: dark;
+  --bg: #1e1e2e;
+  --fg: #cdd6f4;
+  --muted: #9399b2;
+  --accent: #89b4fa;
+  --accent2: #f5c2e7;
+  --card: rgba(30, 30, 46, 0.72);
+  --stroke: rgba(137, 180, 250, 0.28);
+  --shade1: rgba(12, 12, 24, 0.5);
+  --shade2: rgba(12, 12, 24, 0.78);
+  --meta: #1e1e2e;
+}
+:root[data-theme="rose-pine"] {
+  color-scheme: dark;
+  --bg: #191724;
+  --fg: #e0def4;
+  --muted: #908caa;
+  --accent: #ebbcba;
+  --accent2: #c4a7e7;
+  --card: rgba(25, 23, 36, 0.74);
+  --stroke: rgba(235, 188, 186, 0.28);
+  --shade1: rgba(12, 10, 20, 0.5);
+  --shade2: rgba(12, 10, 20, 0.8);
+  --meta: #191724;
+}
+:root[data-theme="nord"] {
+  color-scheme: dark;
+  --bg: #2e3440;
+  --fg: #eceff4;
+  --muted: #8e9ab3;
+  --accent: #88c0d0;
+  --accent2: #81a1c1;
+  --card: rgba(46, 52, 64, 0.74);
+  --stroke: rgba(136, 192, 208, 0.28);
+  --shade1: rgba(20, 24, 33, 0.5);
+  --shade2: rgba(20, 24, 33, 0.8);
+  --meta: #2e3440;
+}
+:root[data-theme="dracula"] {
+  color-scheme: dark;
+  --bg: #282a36;
+  --fg: #f8f8f2;
+  --muted: #9a9bb3;
+  --accent: #bd93f9;
+  --accent2: #ff79c6;
+  --card: rgba(40, 42, 54, 0.74);
+  --stroke: rgba(189, 147, 249, 0.3);
+  --shade1: rgba(15, 15, 26, 0.5);
+  --shade2: rgba(15, 15, 26, 0.8);
+  --meta: #282a36;
+}
+:root[data-theme="everforest"] {
+  color-scheme: dark;
+  --bg: #2b3339;
+  --fg: #d3c6aa;
+  --muted: #9da9a0;
+  --accent: #a7c080;
+  --accent2: #e69875;
+  --card: rgba(43, 51, 57, 0.76);
+  --stroke: rgba(167, 192, 128, 0.28);
+  --shade1: rgba(16, 22, 20, 0.5);
+  --shade2: rgba(16, 22, 20, 0.8);
+  --meta: #2b3339;
+}
+:root[data-theme="kanagawa"] {
+  color-scheme: dark;
+  --bg: #1f1f28;
+  --fg: #dcd7ba;
+  --muted: #9e9b93;
+  --accent: #7e9cd8;
+  --accent2: #d27e99;
+  --card: rgba(31, 31, 40, 0.74);
+  --stroke: rgba(126, 156, 216, 0.3);
+  --shade1: rgba(12, 12, 20, 0.5);
+  --shade2: rgba(12, 12, 20, 0.8);
+  --meta: #1f1f28;
+}
+:root[data-theme="osaka-jade"] {
+  color-scheme: dark;
+  --bg: #101815;
+  --fg: #e8f0e8;
+  --muted: #8aa092;
+  --accent: #62d99a;
+  --accent2: #e0c060;
+  --card: rgba(16, 24, 21, 0.74);
+  --stroke: rgba(98, 217, 154, 0.28);
+  --shade1: rgba(6, 14, 11, 0.52);
+  --shade2: rgba(6, 14, 11, 0.8);
+  --meta: #101815;
+}
+:root[data-theme="matte-black"] {
+  color-scheme: dark;
+  --bg: #000000;
+  --fg: #f5f5f5;
+  --muted: #9a9a9a;
+  --accent: #ffffff;
+  --accent2: #8a8a8a;
+  --card: rgba(8, 8, 8, 0.72);
+  --stroke: rgba(255, 255, 255, 0.22);
+  --shade1: rgba(0, 0, 0, 0.55);
+  --shade2: rgba(0, 0, 0, 0.85);
+  --meta: #000000;
+}
+:root[data-theme="flexoki-light"] {
+  color-scheme: light;
+  --bg: #fffcf0;
+  --fg: #100f0f;
+  --muted: #6f6e69;
+  --accent: #205ea6;
+  --accent2: #d14d41;
+  --card: rgba(255, 252, 240, 0.78);
+  --stroke: rgba(32, 94, 166, 0.3);
+  --shade1: rgba(255, 252, 240, 0.25);
+  --shade2: rgba(255, 252, 240, 0.55);
+  --meta: #fffcf0;
+}
+
+/* tema değiştirici (sağ üst) — tüm sayfalarda ortak */
+.theme { position: fixed; top: 18px; right: 18px; z-index: 20; }
+.theme-btn {
+  width: 44px; height: 44px; border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+  color: var(--fg); font-size: 18px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.theme-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), 0 0 20px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.theme-panel {
+  margin-top: 8px;
+  width: 218px;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+  padding: 8px;
+  display: none;
+  max-height: min(60vh, 380px);
+  overflow-y: auto;
+}
+.theme.open .theme-panel { display: block; }
+.theme-hint {
+  padding: 6px 10px 8px;
+  font-size: 11px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  color: var(--muted);
+}
+.theme-hint kbd {
+  border: 1px solid var(--stroke);
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-family: inherit;
+  color: var(--fg);
+}
+.theme-opt {
+  width: 100%;
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px;
+  border: 0; border-radius: 10px;
+  background: transparent;
+  color: var(--fg);
+  font-size: 13.5px; font-weight: 600;
+  cursor: pointer; text-align: left;
+  transition: background 0.13s ease;
+}
+.theme-opt:hover { background: color-mix(in srgb, var(--accent) 13%, transparent); }
+.theme-opt[aria-checked="true"] { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.theme-dots { display: flex; flex: none; }
+.theme-dots i {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid var(--card);
+  margin-left: -6px;
+}
+.theme-dots i:first-child { margin-left: 0; }
+.theme-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.theme-tick { color: var(--accent); font-size: 14px; visibility: hidden; }
+.theme-opt[aria-checked="true"] .theme-tick { visibility: visible; }
+
+/* tema geçişini yumuşat */
+body, .card, .shell, .player, .menu-btn, .menu-drop, .theme-btn, .theme-panel,
+.link-btn, .play, .post-box { transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
