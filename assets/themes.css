@@ -231,6 +231,40 @@
 .theme-tick { color: var(--accent); font-size: 14px; visibility: hidden; }
 .theme-opt[aria-checked="true"] .theme-tick { visibility: visible; }
 
+/* dil değiştirici — tema paneliyle aynı dil */
+.lang-panel {
+  margin-top: 12px;
+  width: 160px;
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+  padding: 8px;
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  margin-top: 0;
+  z-index: 40;
+}
+.lang.open .lang-panel { display: block; }
+.lang-opt {
+  width: 100%;
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px;
+  border: 0; border-radius: 10px;
+  background: transparent;
+  color: var(--fg);
+  font-size: 13.5px; font-weight: 600;
+  cursor: pointer; text-align: left;
+  transition: background 0.13s ease;
+}
+.lang-opt:hover { background: color-mix(in srgb, var(--accent) 13%, transparent); }
+.lang-opt[aria-checked="true"] { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.lang-opt[aria-checked="true"] .theme-tick { visibility: visible; }
+
 /* tema geçişini yumuşat */
 body, .card, .shell, .player, .topbar, .theme-btn, .theme-panel,
 .link-btn, .play, .post-box { transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; }

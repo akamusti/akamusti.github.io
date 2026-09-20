@@ -15,6 +15,7 @@
 <link rel="icon" href="/img/pfp.jpg">
 <link rel="stylesheet" href="/assets/themes.css">
 <script>try{var _t=localStorage.getItem("akamusti-theme");if(_t)document.documentElement.setAttribute("data-theme",_t);}catch(e){}</script>
+<script>try{var _l=localStorage.getItem("akamusti-lang");if(_l==="en"||_l==="tr")document.documentElement.setAttribute("lang",_l);}catch(e){}</script>
 <style>
   :root {
     --bg: #0b0d10;
@@ -93,6 +94,11 @@
   .topbar .theme-btn:hover { color: var(--fg); background: color-mix(in srgb, var(--accent) 12%, transparent); border-color: transparent; box-shadow: none; transform: none; }
   .topbar .theme-panel { position: absolute; top: calc(100% + 10px); right: 0; margin-top: 0; z-index: 40; }
   .top-right { display: flex; align-items: center; gap: 2px; flex: none; }
+  .topbar .lang { position: relative; display: block; }
+  .lang-btn {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+  }
   .icon-btn {
     width: 36px; height: 36px;
     display: flex; align-items: center; justify-content: center;
@@ -237,6 +243,9 @@
     font-family: ui-monospace, Menlo, Consolas, monospace;
     font-size: 11px; color: var(--muted);
   }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  footer .sep { margin: 0 8px; opacity: 0.5; }
 
   @media (max-width: 640px) {
     .topbar-inner { padding: 0 12px; gap: 10px; }
@@ -264,9 +273,9 @@
     <div class="top-left">
       <a class="brand" href="/"><img src="/img/pfp.jpg" alt="akaMusti"><span>akaMusti</span></a>
       <nav class="top-links">
-        <a href="/blog/"{% if page.url contains '/blog' %} aria-current="page"{% endif %}>günlük</a>
-        <a href="/defter/"{% if page.url contains '/defter' %} aria-current="page"{% endif %}>defter</a>
-        <a href="/projeler/"{% if page.url contains '/projeler' %} aria-current="page"{% endif %}>projeler</a>
+        <a href="/blog/"{% if page.url contains '/blog' %} aria-current="page"{% endif %} data-i18n="nav.journal">günlük</a>
+        <a href="/defter/"{% if page.url contains '/defter' %} aria-current="page"{% endif %} data-i18n="nav.guestbook">defter</a>
+        <a href="/projeler/"{% if page.url contains '/projeler' %} aria-current="page"{% endif %} data-i18n="nav.projects">projeler</a>
       </nav>
     </div>
     <div class="top-right">
@@ -274,16 +283,17 @@
         <button class="theme-btn" id="themeBtn" aria-label="tema değiştir" aria-expanded="false" title="tema değiştir (T)">◑</button>
         <div class="theme-panel" role="menu" aria-label="temalar"></div>
       </div>
-      <a class="icon-btn" href="/" title="ana sayfa" aria-label="ana sayfa">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
-      </a>
+      <div class="lang" id="lang">
+        <button class="icon-btn lang-btn" id="langBtn" aria-label="language" aria-expanded="false" title="TR/EN">EN</button>
+        <div class="lang-panel" role="menu" aria-label="language"></div>
+      </div>
       <a class="icon-btn" href="/blog/feed.xml" title="rss" aria-label="rss">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4.4v3c7 0 12.6 5.6 12.6 12.6h3C19.6 11.7 12.3 4.4 4 4.4zm0 6v3c3.7 0 6.6 2.9 6.6 6.6h3c0-5.3-4.3-9.6-9.6-9.6zM6.2 15.6a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8z"/></svg>
       </a>
       <a class="icon-btn" href="https://github.com/akamusti" target="_blank" rel="noopener" title="github" aria-label="github">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.35.77 1.05.77 2.12v3.14c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
       </a>
-      <a class="cta" href="/defter/">defter'e yaz</a>
+      <a class="cta" href="/projeler/" data-i18n="cta.projects">projelerim</a>
     </div>
   </div>
 </header>
@@ -300,9 +310,10 @@
 {{ content }}
   </main>
 
-  <footer>&copy; 2026 akaMusti</footer>
+  <footer><span>&copy; 2026 akaMusti</span><span class="sep">·</span><a href="/gizlilik/" data-i18n="footer.privacy">gizlilik</a></footer>
 </div>
 
 <script src="/assets/theme.js" defer></script>
+<script src="/assets/lang.js" defer></script>
 </body>
 </html>

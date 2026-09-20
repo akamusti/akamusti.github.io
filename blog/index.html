@@ -3,10 +3,10 @@ layout: default
 title: günlük
 description: akaMusti — günlük yazıları.
 ---
-<a class="back" href="/">&larr; ana sayfa</a>
+<a class="back" href="/" data-i18n="back.home">&larr; ana sayfa</a>
 
-<h1 class="page-title">günlük</h1>
-<p class="sub">aklıma gelenleri buraya karalıyorum</p>
+<h1 class="page-title" data-i18n="blog.title">günlük</h1>
+<p class="sub" data-i18n="blog.sub">aklıma gelenleri buraya karalıyorum</p>
 
 <div class="rule"></div>
 
@@ -16,5 +16,5 @@ description: akaMusti — günlük yazıları.
   <span class="pb-date">{{ post.date | date: "%d.%m.%Y" }}</span>
 </a>
 {% else %}
-<p class="blog-empty">henüz yazı yok — yakında.</p>
+<p class="blog-empty" data-i18n="blog.empty">henüz yazı yok — yakında.</p>
 {% endfor %}

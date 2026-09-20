@@ -3,10 +3,10 @@ layout: default
 title: projeler
 description: akaMusti — yaptıklarım.
 ---
-<a class="back" href="/">&larr; ana sayfa</a>
+<a class="back" href="/" data-i18n="back.home">&larr; ana sayfa</a>
 
-<h1 class="page-title">projeler</h1>
-<p class="sub">boş vakitlerimde kurcaladıklarım</p>
+<h1 class="page-title" data-i18n="projects.title">projeler</h1>
+<p class="sub" data-i18n="projects.sub">boş vakitlerimde kurcaladıklarım</p>
 
 <div class="rule"></div>
 
@@ -46,41 +46,37 @@ description: akaMusti — yaptıklarım.
   .proj-meta .lang { display: inline-flex; align-items: center; gap: 6px; }
   .proj-meta .lang i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
   .proj-meta .live { color: var(--accent); }
-  .more { margin-top: 18px; font-size: 14px; color: var(--muted); }
-  .more a { color: var(--accent); }
 </style>
 
 <div class="proj-list">
   <a class="proj" href="https://akamusti.github.io/kick-notifier/" target="_blank" rel="noopener">
     <div class="proj-top"><span class="proj-name">kick-notifier</span><span class="proj-arrow">↗</span></div>
-    <p class="proj-desc">Sevdiğin Kick yayıncıları canlıya geçince haber veren site ve tarayıcı eklentileri.</p>
+    <p class="proj-desc" data-proj-desc="kick-notifier">Sevdiğin Kick yayıncıları canlıya geçince haber veren site ve tarayıcı eklentileri.</p>
     <div class="proj-meta"><span class="lang"><i style="background:#e34c26"></i>HTML</span><span class="live">● canlıda</span></div>
   </a>
   <a class="proj" href="https://github.com/akamusti/kick-yayin-takipcisi" target="_blank" rel="noopener">
     <div class="proj-top"><span class="proj-name">kick-yayin-takipcisi</span><span class="proj-arrow">↗</span></div>
-    <p class="proj-desc">Firefox eklentisi — kanalları ekle, kim canlı bir bakışta gör, yayın başlayınca bildirim al.</p>
+    <p class="proj-desc" data-proj-desc="kick-yayin-takipcisi">Firefox eklentisi — kanalları ekle, kim canlı bir bakışta gör, yayın başlayınca bildirim al.</p>
     <div class="proj-meta"><span class="lang"><i style="background:#f1e05a"></i>JavaScript</span><span>MIT</span></div>
   </a>
   <a class="proj" href="https://github.com/akamusti/kick-takipci-chromium" target="_blank" rel="noopener">
     <div class="proj-top"><span class="proj-name">kick-takipci-chromium</span><span class="proj-arrow">↗</span></div>
-    <p class="proj-desc">Yayın takipçisinin Chromium sürümü — Kick yayıncılarının aktifliğini izler.</p>
+    <p class="proj-desc" data-proj-desc="kick-takipci-chromium">Yayın takipçisinin Chromium sürümü — Kick yayıncılarının aktifliğini izler.</p>
     <div class="proj-meta"><span class="lang"><i style="background:#f1e05a"></i>JavaScript</span><span>MIT</span></div>
   </a>
   <a class="proj" href="https://github.com/akamusti/soundsniff" target="_blank" rel="noopener">
     <div class="proj-top"><span class="proj-name">soundsniff</span><span class="proj-arrow">↗</span></div>
-    <p class="proj-desc">Shazam tarzı müzik tanıma eklentisi — Firefox ve türevleri için.</p>
+    <p class="proj-desc" data-proj-desc="soundsniff">Shazam tarzı müzik tanıma eklentisi — Firefox ve türevleri için.</p>
     <div class="proj-meta"><span class="lang"><i style="background:#f1e05a"></i>JavaScript</span><span>MIT</span></div>
   </a>
   <a class="proj" href="https://github.com/akamusti/dotfiles" target="_blank" rel="noopener">
     <div class="proj-top"><span class="proj-name">dotfiles</span><span class="proj-arrow">↗</span></div>
-    <p class="proj-desc">Omarchy / Hyprland kurulumumun nokta dosyaları.</p>
+    <p class="proj-desc" data-proj-desc="dotfiles">Omarchy / Hyprland kurulumumun nokta dosyaları.</p>
     <div class="proj-meta"><span class="lang"><i style="background:#000080"></i>Lua</span></div>
   </a>
   <a class="proj" href="/">
     <div class="proj-top"><span class="proj-name">bu site</span><span class="proj-arrow">→</span></div>
-    <p class="proj-desc">Okuduğun sitenin ta kendisi — cam efektli, temalı, müzikli.</p>
+    <p class="proj-desc" data-proj-desc="this-site">Okuduğun sitenin ta kendisi — cam efektli, temalı, müzikli.</p>
     <div class="proj-meta"><span class="lang"><i style="background:#e34c26"></i>HTML</span></div>
   </a>
 </div>
-
-<p class="more">daha fazlası için <a href="https://github.com/akamusti" target="_blank" rel="noopener">github profilim</a> →</p>
