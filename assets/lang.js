@@ -38,6 +38,9 @@
     "privacy.p6":  { tr: "Gizlilikle ilgili sorular için GitHub profili üzerinden ulaş.", en: "For privacy questions, reach out via the GitHub profile." },
     "privacy.updated": { tr: "son güncelleme: eylül 2026", en: "last updated: september 2026" },
     "footer.privacy": { tr: "gizlilik", en: "privacy" },
+    "sec.projects": { tr: "projeler", en: "projects" },
+    "sec.socials": { tr: "sosyal", en: "socials" },
+    "home.all": { tr: "tüm projeler ->", en: "all projects ->" },
     "home.bio": { tr: "Ur Virtual Puppyboy :3", en: "Ur Virtual Puppyboy :3" },
     "hero.eyebrow": { tr: "hoş geldin", en: "welcome" },
     "hero.title1": { tr: "Ben", en: "I'm" },
@@ -69,8 +72,8 @@
       en: "Dotfiles of my Omarchy / Hyprland setup."
     },
     "this-site": {
-      tr: "Okuduğun sitenin ta kendisi — cam efektli, temalı, müzikli.",
-      en: "The very site you are reading — glassy, themed, with music."
+      tr: "Okuduğun sitenin ta kendisi — sade, temalı, müzikli.",
+      en: "The very site you are reading — plain, themed, with music."
     }
   };
 
