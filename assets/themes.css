@@ -232,7 +232,7 @@
 .theme-opt[aria-checked="true"] .theme-tick { visibility: visible; }
 
 /* tema geçişini yumuşat */
-body, .card, .shell, .player, .menu-btn, .menu-drop, .theme-btn, .theme-panel,
+body, .card, .shell, .player, .topbar, .theme-btn, .theme-panel,
 .link-btn, .play, .post-box { transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
 
 /* mobil: paneller ekrana sığsın, butonlar kenara yaklaşsın */
