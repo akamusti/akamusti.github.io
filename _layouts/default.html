@@ -118,6 +118,11 @@
   }
   .cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
 
+  /* scroll reveal — mobil + masaüstü */
+  .reveal { opacity: 0; transform: translateY(16px); }
+  .reveal.in { opacity: 1; transform: none; transition: opacity 0.5s ease, transform 0.5s ease; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
   .shell {
     width: 100%;
     max-width: 640px;
@@ -298,7 +303,7 @@
   </div>
 </header>
 
-<div class="shell">
+<div class="shell reveal">
   <header>
     <img class="avatar" src="/img/pfp.jpg" alt="akaMusti">
     <div class="titles">
@@ -313,6 +318,18 @@
   <footer><span>&copy; 2026 akaMusti</span><span class="sep">·</span><a href="/gizlilik/" data-i18n="footer.privacy">gizlilik</a></footer>
 </div>
 
+<script>
+  // scroll reveal — hem mobil hem masaüstü
+  (function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  })();
+</script>
 <script src="/assets/theme.js" defer></script>
 <script src="/assets/lang.js" defer></script>
 </body>

@@ -222,11 +222,15 @@
     width: 120px; height: 3px; margin: 10px auto 20px; border-radius: 99px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
   }
-  .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 16px; align-items: stretch; }
+  .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 16px; align-items: start; }
   .about-photo { padding: 14px; margin: 0; }
   .about-photo img { width: 100%; border-radius: 12px; display: block; border: 1px solid var(--stroke); }
-  .about-photo figcaption { text-align: center; margin-top: 10px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; color: var(--muted); }
   .about-text { padding: 28px 30px; display: flex; flex-direction: column; justify-content: center; gap: 14px; font-size: 15.5px; line-height: 1.75; }
+
+  /* scroll reveal — mobil + masaüstü */
+  .reveal { opacity: 0; transform: translateY(16px); }
+  .reveal.in { opacity: 1; transform: none; transition: opacity 0.5s ease, transform 0.5s ease; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
 
   /* music player */
   .player {
@@ -338,7 +342,7 @@
 </header>
 
 <main class="page">
-  <section class="hero glass">
+  <section class="hero glass reveal">
     <div class="hero-text">
       <span class="pill"><span class="dot"></span><span data-i18n="hero.eyebrow">hoş geldin</span></span>
       <h1 class="hero-title"><span data-i18n="hero.title1">Ben</span> <span class="acc" data-i18n="hero.title2">Musti.</span></h1>
@@ -390,13 +394,12 @@
     </div>
   </section>
 
-  <section class="about" id="hakkimda">
+  <section class="about reveal" id="hakkimda">
     <h2 class="about-title"><span data-i18n="about.title">Hakkımda</span></h2>
     <div class="about-bar"></div>
     <div class="about-grid">
       <figure class="about-photo glass">
         <img src="img/kusakabe.jpg" alt="akaMusti">
-        <figcaption>✦ akaMusti ✦</figcaption>
       </figure>
       <div class="about-text glass">
         <p data-i18n="about.p1">Ben Musti. Kendimce bir şeyler yapıyorum.</p>
@@ -405,7 +408,7 @@
     </div>
   </section>
 
-  <div class="player" id="player">
+  <div class="player reveal" id="player">
     <img class="disc" src="img/disc.jpg" alt="">
     <div class="meta">
       <div class="title">Salvatore — dreamy version</div>
@@ -446,6 +449,17 @@
   }
   typeBio();
   document.addEventListener("akamusti:lang", typeBio);
+
+  // scroll reveal — hem mobil hem masaüstü
+  (function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      }
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  })();
 
   // music player
   const audio = document.getElementById("audio");
