@@ -216,34 +216,6 @@
   .mini-stats b { font-size: 20px; }
   .mini-stats small { font-size: 11px; color: var(--muted); font-family: ui-monospace, Menlo, Consolas, monospace; }
 
-  /* featured */
-  .feat { padding: 28px 28px 24px; }
-  .feat h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .feat .sub { color: var(--muted); font-size: 13.5px; margin-bottom: 16px; }
-  .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .feat-card {
-    display: block; padding: 20px 18px; border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    background: rgba(255, 255, 255, 0.045);
-    text-decoration: none; color: var(--fg);
-    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-  }
-  .feat-card:hover {
-    transform: translateY(-2px);
-    background: color-mix(in srgb, var(--accent) 10%, transparent);
-    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
-    box-shadow: 0 6px 24px color-mix(in srgb, var(--accent) 15%, transparent);
-  }
-  .feat-card .ic {
-    width: 44px; height: 44px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
-    color: var(--accent); font-size: 20px; margin-bottom: 12px;
-  }
-  .feat-card b { display: block; font-size: 16px; }
-  .feat-card p { margin-top: 4px; font-size: 13px; color: var(--muted); line-height: 1.55; }
-  .feat-card .open { display: inline-block; margin-top: 10px; font-size: 12.5px; font-weight: 700; color: var(--accent); font-family: ui-monospace, Menlo, Consolas, monospace; }
-
   /* music player */
   .player {
     background: var(--card);
@@ -296,7 +268,6 @@
     .hero-side { border-left: 0; border-top: 1px solid var(--stroke); }
     .hero-text { padding: 28px 22px 26px; }
     .hero-title { font-size: 34px; }
-    .feat-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
     .topbar-inner { padding: 0 12px; gap: 10px; }
@@ -352,7 +323,7 @@
 <main class="page">
   <section class="hero glass">
     <div class="hero-text">
-      <span class="pill"><span class="dot"></span><span data-i18n="hero.eyebrow">puppy burada</span></span>
+      <span class="pill"><span class="dot"></span><span data-i18n="hero.eyebrow">hoş geldin</span></span>
       <h1 class="hero-title"><span data-i18n="hero.title1">Ben</span> <span class="acc" data-i18n="hero.title2">Musti.</span></h1>
       <p class="hero-sub"><span id="typed"></span><span class="cursor">▌</span></p>
       <div class="hero-cta">
@@ -398,34 +369,7 @@
       <div class="side-handle">@akamusti</div>
       <div class="mini-stats">
         <div><b>6</b><small data-i18n="stats.projects">proje</small></div>
-        <div><b>12</b><small data-i18n="stats.themes">tema</small></div>
-        <div><b>2</b><small data-i18n="stats.langs">dil</small></div>
       </div>
-    </div>
-  </section>
-
-  <section class="feat glass">
-    <h2 data-i18n="feat.title">öne çıkanlar</h2>
-    <p class="sub" data-i18n="feat.sub">evrenin içinde neler var</p>
-    <div class="feat-grid">
-      <a class="feat-card" href="/projeler/">
-        <span class="ic">⌘</span>
-        <b data-i18n="nav.projects">projeler</b>
-        <p data-i18n="feat.proj_d">Yaptıklarım — eklentiler, siteler, dotfiles.</p>
-        <span class="open" data-i18n="feat.open">aç →</span>
-      </a>
-      <a class="feat-card" href="/blog/">
-        <span class="ic">✎</span>
-        <b data-i18n="nav.journal">günlük</b>
-        <p data-i18n="feat.journal_d">Aklıma gelenler, kısa kısa.</p>
-        <span class="open" data-i18n="feat.open">aç →</span>
-      </a>
-      <a class="feat-card" href="/defter/">
-        <span class="ic">♥</span>
-        <b data-i18n="nav.guestbook">defter</b>
-        <p data-i18n="feat.guest_d">Uğra, bir satır bırak.</p>
-        <span class="open" data-i18n="feat.open">aç →</span>
-      </a>
     </div>
   </section>
 
