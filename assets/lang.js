@@ -35,7 +35,21 @@
     "privacy.p6":  { tr: "Gizlilikle ilgili sorular için GitHub profili üzerinden ulaş.", en: "For privacy questions, reach out via the GitHub profile." },
     "privacy.updated": { tr: "son güncelleme: eylül 2026", en: "last updated: september 2026" },
     "footer.privacy": { tr: "gizlilik", en: "privacy" },
-    "home.bio": { tr: "Ur Virtual Puppyboy :3", en: "Ur Virtual Puppyboy :3" }
+    "home.bio": { tr: "Ur Virtual Puppyboy :3", en: "Ur Virtual Puppyboy :3" },
+    "hero.eyebrow": { tr: "puppy burada", en: "puppy is here" },
+    "hero.title1": { tr: "Biraz gece,", en: "Part night," },
+    "hero.title2": { tr: "biraz puppy.", en: "part puppy." },
+    "hero.kick": { tr: "Kick'te izle", en: "Watch on Kick" },
+    "hero.projects": { tr: "Projelerim", en: "My projects" },
+    "stats.projects": { tr: "proje", en: "projects" },
+    "stats.themes": { tr: "tema", en: "themes" },
+    "stats.langs": { tr: "dil", en: "langs" },
+    "feat.title": { tr: "öne çıkanlar", en: "highlights" },
+    "feat.sub": { tr: "evrenin içinde neler var", en: "what's inside the universe" },
+    "feat.proj_d": { tr: "Yaptıklarım — eklentiler, siteler, dotfiles.", en: "Things I built — extensions, sites, dotfiles." },
+    "feat.journal_d": { tr: "Aklıma gelenler, kısa kısa.", en: "Thoughts, in short." },
+    "feat.guest_d": { tr: "Uğra, bir satır bırak.", en: "Stop by, leave a line." },
+    "feat.open": { tr: "aç →", en: "open →" }
   };
 
   var PROJ = {
