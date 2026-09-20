@@ -39,16 +39,17 @@
   .nav { border-bottom: 1px solid var(--stroke); position: sticky; top: 0; background: var(--bg); z-index: 30; }
   .nav-in {
     max-width: 720px; margin: 0 auto; height: 54px; padding: 0 20px;
-    display: flex; align-items: center; gap: 24px;
+    display: flex; align-items: center; gap: 24px; flex-wrap: nowrap;
   }
   .logo { font-weight: 800; font-size: 16px; color: var(--fg); text-decoration: none; flex: none; }
   .logo:hover { color: var(--accent); }
-  .nav-links { display: flex; gap: 18px; flex: 1; min-width: 0; }
+  .nav-links { display: flex; gap: 18px; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
   .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; white-space: nowrap; }
   .nav-links a:hover { color: var(--fg); }
   .nav-links a[aria-current="page"] { color: var(--accent); }
-  .nav-right { display: flex; align-items: center; gap: 2px; flex: none; }
-  .nav .theme { position: relative; display: block; }
+  .nav-right { display: flex; align-items: center; gap: 2px; flex: none; margin-left: auto; }
+  .nav .theme { position: relative; top: auto; right: auto; display: block; }
   .nav .theme-btn {
     width: 32px; height: 32px; border-radius: 8px;
     border: 0; background: transparent; box-shadow: none;

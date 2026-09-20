@@ -39,15 +39,16 @@
   .nav { border-bottom: 1px solid var(--stroke); position: sticky; top: 0; background: var(--bg); z-index: 30; }
   .nav-in {
     max-width: 720px; margin: 0 auto; height: 54px; padding: 0 20px;
-    display: flex; align-items: center; gap: 24px;
+    display: flex; align-items: center; gap: 24px; flex-wrap: nowrap;
   }
   .logo { font-weight: 800; font-size: 16px; color: var(--fg); text-decoration: none; flex: none; }
   .logo:hover { color: var(--accent); }
-  .nav-links { display: flex; gap: 18px; flex: 1; min-width: 0; }
+  .nav-links { display: flex; gap: 18px; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
   .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; white-space: nowrap; }
   .nav-links a:hover { color: var(--fg); }
-  .nav-right { display: flex; align-items: center; gap: 2px; flex: none; }
-  .nav .theme { position: relative; display: block; }
+  .nav-right { display: flex; align-items: center; gap: 2px; flex: none; margin-left: auto; }
+  .nav .theme { position: relative; top: auto; right: auto; display: block; }
   .nav .theme-btn {
     width: 32px; height: 32px; border-radius: 8px;
     border: 0; background: transparent; box-shadow: none;
@@ -202,10 +203,6 @@
 
   <section class="reveal">
     <h2 data-i18n="sec.projects">projeler</h2>
-    <a class="row" href="https://akamusti.github.io/kick-notifier/" target="_blank" rel="noopener">
-      <div class="row-top"><span class="row-name">kick-notifier</span><span class="row-tag">html · canlıda</span><span class="row-arrow">↗</span></div>
-      <p class="row-desc" data-proj-desc="kick-notifier">Sevdiğin Kick yayıncıları canlıya geçince haber veren site ve tarayıcı eklentileri.</p>
-    </a>
     <a class="row" href="https://github.com/akamusti/kick-yayin-takipcisi" target="_blank" rel="noopener">
       <div class="row-top"><span class="row-name">kick-yayin-takipcisi</span><span class="row-tag">javascript · mit</span><span class="row-arrow">↗</span></div>
       <p class="row-desc" data-proj-desc="kick-yayin-takipcisi">Firefox eklentisi — kanalları ekle, kim canlı bir bakışta gör, yayın başlayınca bildirim al.</p>
@@ -213,6 +210,10 @@
     <a class="row" href="https://github.com/akamusti/soundsniff" target="_blank" rel="noopener">
       <div class="row-top"><span class="row-name">soundsniff</span><span class="row-tag">javascript · mit</span><span class="row-arrow">↗</span></div>
       <p class="row-desc" data-proj-desc="soundsniff">Shazam tarzı müzik tanıma eklentisi — Firefox ve türevleri için.</p>
+    </a>
+    <a class="row" href="https://akamusti.github.io/kick-notifier/" target="_blank" rel="noopener">
+      <div class="row-top"><span class="row-name">kick-notifier</span><span class="row-tag">html · canlıda</span><span class="row-arrow">↗</span></div>
+      <p class="row-desc" data-proj-desc="kick-notifier">Sevdiğin Kick yayıncıları canlıya geçince haber veren site ve tarayıcı eklentileri.</p>
     </a>
     <a class="more-link" href="/projeler/" data-i18n="home.all">tüm projeler -></a>
   </section>
