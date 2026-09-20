@@ -8,7 +8,10 @@
 
   var STR = {
     "nav.journal":   { tr: "günlük",   en: "journal" },
-    "nav.guestbook": { tr: "defter",    en: "guestbook" },
+    "nav.about":     { tr: "hakkımda", en: "about" },
+    "about.title":   { tr: "Hakkımda", en: "About" },
+    "about.p1": { tr: "Ben Musti. Kendimce bir şeyler yapıyorum.", en: "I'm Musti. I make stuff my own way." },
+    "about.p2": { tr: "Film ve dizi izlemeyi severim. Bu kadar...", en: "I like watching movies and series. That's it..." },    "nav.guestbook": { tr: "defter",    en: "guestbook" },
     "nav.projects":  { tr: "projeler",  en: "projects" },
     "cta.projects":  { tr: "projelerim", en: "my projects" },
     "back.home":     { tr: "← ana sayfa", en: "← home" },
