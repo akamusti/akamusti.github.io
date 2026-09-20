@@ -177,7 +177,7 @@
 .theme-btn:hover {
   transform: translateY(-1px);
   border-color: var(--accent);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), 0 0 20px color-mix(in srgb, var(--accent) 25%, transparent);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
 }
 .theme-panel {
   margin-top: 12px;
