@@ -2,7 +2,7 @@
 
 [🇬🇧 English version](README.en.md)
 
-Kişisel sitemin kaynak kodları: [akamusti.github.io](https://akamusti.github.io)
+Kişisel sitem: [akamusti.github.io](https://akamusti.github.io)
 
 Sade, hızlı ve bağımlılıksız — Jekyll + GitHub Pages üzerinde çalışan tek kişilik kişisel site.
 
