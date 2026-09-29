@@ -1,0 +1,46 @@
+---
+layout: default
+title: anime
+description: akaMusti — myanimelist'te son durum.
+---
+<a class="back" href="/" data-i18n="back.home">&larr; ana sayfa</a>
+
+<h1 class="page-title" data-i18n="anime.title">anime</h1>
+<p class="sub" data-i18n="anime.sub">myanimelist'te neler oluyor</p>
+
+<div class="rule"></div>
+
+<style>
+  .row {
+    display: block; text-decoration: none; color: var(--fg);
+    padding: 12px 0; border-top: 1px solid var(--stroke);
+  }
+  .row:last-child { border-bottom: 1px solid var(--stroke); }
+  .row:hover .row-name { color: var(--accent); }
+  .row-top { display: flex; align-items: baseline; gap: 10px; }
+  .row-name { font-weight: 700; font-size: 15.5px; }
+  .row-tag { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11.5px; color: var(--muted); }
+  .row-arrow { margin-left: auto; color: var(--muted); font-size: 14px; flex: none; }
+  .row:hover .row-arrow { color: var(--accent); }
+  .row-desc { margin-top: 2px; font-size: 13.5px; color: var(--muted); }
+  .row-desc a { color: var(--accent); }
+  .mal-sec { margin-top: 28px; }
+  .mal-sec > h2 { font-size: 18px; margin-bottom: 4px; }
+  .mal-profile { margin-top: 20px; font-size: 13.5px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+  .mal-profile a { color: var(--accent); text-decoration: none; }
+  .mal-profile a:hover { color: var(--fg); }
+</style>
+
+<div class="mal-sec">
+  <h2 data-i18n="anime.updated">listede son güncellenenler</h2>
+  <div data-mal="updated"><p class="row-desc" data-i18n="anime.loading">yükleniyor…</p></div>
+</div>
+
+<div class="mal-sec">
+  <h2 data-i18n="anime.episodes">bölüm geçmişi</h2>
+  <div data-mal="episodes"><p class="row-desc" data-i18n="anime.loading">yükleniyor…</p></div>
+</div>
+
+<p class="mal-profile"><a href="https://myanimelist.net/profile/akamusti" target="_blank" rel="noopener">myanimelist.net/profile/akamusti ↗</a></p>
+
+<script src="/assets/mal.js" defer></script>
