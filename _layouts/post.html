@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
-<a class="back" href="/blog/">&larr; tüm yazılar</a>
+<a class="back" href="/blog/" data-i18n="back.blog">&larr; tüm yazılar</a>
 
 <article>
-  <h2 class="post-title">{{ page.title }}</h2>
+  <h1 class="post-title">{{ page.title }}</h1>
   <p class="post-meta">{{ page.date | date: "%d.%m.%Y" }}{% if page.description %} — {{ page.description }}{% endif %}</p>
   <div class="post-content">
 {{ content }}

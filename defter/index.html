@@ -11,32 +11,49 @@ description: akaMusti — ziyaretçi defteri.
 <div class="rule"></div>
 
 <style>
-  .defter-hero { text-align: center; margin: 4px 0 16px; }
+  .defter-hero {
+    text-align: center;
+    margin: 8px 0 20px;
+  }
   .defter-hero .puppy {
-    width: 64px; height: 64px;
+    width: 68px;
+    height: 68px;
     image-rendering: pixelated;
-    border-radius: 12px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 20%, transparent);
+    transition: transform 0.25s ease;
+  }
+  .defter-hero .puppy:hover {
+    transform: scale(1.1) rotate(4deg);
   }
   .defter-hero .blink {
-    margin-top: 8px;
-    font-family: ui-monospace, Menlo, Consolas, monospace;
-    font-size: 12px; color: var(--muted);
-    animation: blink 1.2s steps(1) infinite;
+    margin-top: 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    animation: blink 1.5s steps(1) infinite;
   }
-  @keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+  @keyframes blink {
+    0%, 55% { opacity: 1; }
+    56%, 100% { opacity: 0.3; }
+  }
   .guestbook {
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 20px 16px;
-    min-height: 120px;
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--card) 50%, transparent);
+    padding: 24px 16px;
+    min-height: 140px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
-  .guestbook .utterances { max-width: 100%; }
+  .guestbook .utterances {
+    max-width: 100%;
+  }
 </style>
 
 <div class="defter-hero">
-  <img class="puppy" src="/img/puppy.gif" width="64" height="64" alt="kalpli puppy" loading="lazy" decoding="async">
-  <p class="blink">*.·.· defter açık ·.·.*</p>
+  <img class="puppy" src="/img/puppy.gif" width="68" height="68" alt="kalpli puppy" loading="lazy" decoding="async">
+  <p class="blink" data-i18n="guestbook.status">*.·.· defter açık ·.·.*</p>
 </div>
 
 <div class="guestbook">
@@ -51,10 +68,28 @@ description: akaMusti — ziyaretçi defteri.
 </div>
 
 <script>
-  // açık tema seçiliyse yorumları da açık göm (async yüklenmeden önce çalışır)
-  try {
-    if (document.documentElement.getAttribute("data-theme") === "flexoki-light") {
-      document.getElementById("utterances").setAttribute("theme", "github-light");
+  // Utterances tema yönetimi ve canlı tema senkronizasyonu
+  (function() {
+    function getUtterancesTheme(siteTheme) {
+      return siteTheme === "flexoki-light" ? "github-light" : "github-dark";
     }
-  } catch (e) {}
+
+    try {
+      var curTheme = document.documentElement.getAttribute("data-theme");
+      var uTheme = getUtterancesTheme(curTheme);
+      var utScript = document.getElementById("utterances");
+      if (utScript) utScript.setAttribute("theme", uTheme);
+    } catch (e) {}
+
+    // Canlı tema değiştiğinde utterances iframe'ine mesaj ilet
+    document.addEventListener("akamusti:theme", function(e) {
+      var iframe = document.querySelector(".utterances-frame");
+      if (!iframe) return;
+      var newUTheme = getUtterancesTheme(e.detail.theme);
+      iframe.contentWindow.postMessage({
+        type: "set-theme",
+        theme: newUTheme
+      }, "https://utteranc.es");
+    });
+  })();
 </script>
