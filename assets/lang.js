@@ -47,7 +47,7 @@
     "home.bio": { tr: "Ur Virtual Puppyboy :3", en: "Ur Virtual Puppyboy :3" },
     "home.meta_langs": { tr: "tr / en", en: "tr / en" },
     "home.meta_projects": { tr: "6 proje", en: "6 projects" },
-    "home.status": { tr: "vibecoding :3", en: "vibecoding :3" },
+    "home.status": { tr: ":3", en: ":3" },
     "theme.hint": { tr: "tema seç · T ile turla", en: "select theme · T to cycle" }
   };
 
