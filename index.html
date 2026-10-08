@@ -56,7 +56,7 @@
         <span data-i18n="home.status">:3</span>
       </div>
     </div>
-    <p class="bio"><span id="typed"></span><span class="cursor">▌</span></p>
+    <p class="bio" id="bioText">Ur Virtual Puppyboy :3</p>
     <p class="meta-line mono">
       <span data-i18n="home.meta_langs">tr / en</span>
       <span>·</span>
@@ -190,27 +190,16 @@
 </footer>
 
 <script>
-  // animated tab title
-  const titles = ["akaMusti", "@akamusti", "Ur Virtual Puppyboy :3"];
-  let ti = 0;
-  setInterval(() => { document.title = titles[ti++ % titles.length]; }, 3000);
 
-  // typewriter bio — dil değişince baştan yazar
-  const el = document.getElementById("typed");
-  let typeTimer = null;
-  function typeBio() {
+
+  // bio text — dil değişince güncelle
+  var bioEl = document.getElementById("bioText");
+  function updateBio() {
     var lang = (window.__akamustiLang && window.__akamustiLang.current()) || "tr";
     var text = (window.__akamustiLang && window.__akamustiLang.t("home.bio", lang)) || "Ur Virtual Puppyboy :3";
-    if (typeTimer) clearTimeout(typeTimer);
-    let ci = 0;
-    el.textContent = "";
-    (function type() {
-      el.textContent = text.slice(0, ++ci);
-      if (ci <= text.length) typeTimer = setTimeout(type, 65);
-    })();
+    bioEl.textContent = text;
   }
-  typeBio();
-  document.addEventListener("akamusti:lang", typeBio);
+  document.addEventListener("akamusti:lang", updateBio);
 
   // scroll reveal
   (function () {
