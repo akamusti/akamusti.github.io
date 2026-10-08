@@ -10,8 +10,16 @@
 <meta property="og:description" content="{{ page.description | default: site.description }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:image" content="{{ site.url }}/img/pfp.jpg">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{{ site.url }}/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="akaMusti">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }} — {% endif %}akaMusti">
+<meta name="twitter:description" content="{{ page.description | default: site.description }}">
+<meta name="twitter:image" content="{{ site.url }}/img/og.png">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
 <link rel="icon" href="/img/pfp.jpg">
 <link rel="stylesheet" href="/assets/themes.css">
 <script>try{var _t=localStorage.getItem("akamusti-theme");if(_t)document.documentElement.setAttribute("data-theme",_t);}catch(e){}</script>
@@ -139,7 +147,7 @@
     }
 
     if (isClosed()) { pop.classList.add("closed"); }
-    else { pop.classList.remove("closed"); setTimeout(function(){ pop.classList.add("open"), 600); }
+    else { pop.classList.remove("closed"); setTimeout(function(){ pop.classList.add("open"); }, 600); }
 
     closeBtn.addEventListener("click", closePop);
     fab.addEventListener("click", openPop);

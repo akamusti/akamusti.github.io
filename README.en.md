@@ -8,24 +8,29 @@ Simple, fast and dependency-free — a one-person personal site running on Jekyl
 
 ## Features
 
-- **Homepage:** typewriter bio, featured projects, about, social links
+- **Homepage:** bio, featured projects, about, social links
 - **Music player:** bottom-right popup with play / pause, volume, seek bar, close via ✕ + reopen via mini button (preference stored in `localStorage`)
 - **Journal (blog):** Jekyll posts (`_posts/`), RSS (`blog/feed.xml`)
 - **Guestbook:** utterances (GitHub Issues) based guestbook
 - **Projects:** page listing featured work
 - **Themes:** multiple color themes, switch with the `T` shortcut, preference is saved
 - **Language:** TR / EN support (via the `assets/lang.js` dictionary), preference is saved
+- **SEO / sharing:** `og:` + `twitter:` tags, `canonical`, automatic `sitemap.xml` (`jekyll-sitemap`), `robots.txt`
+- **Share image:** `img/og.png` (1200x630) — used in social previews
+- **404:** custom not-found page styled like the rest of the site
 
 ## File structure
 
 ```
 index.html              → homepage (single file)
+404.html                → custom 404 page
+robots.txt              → crawler rules
 _layouts/default.html   → layout for blog / guestbook / projects / privacy
 _layouts/post.html      → blog post layout
 _posts/                 → journal posts (markdown)
 blog/ defter/ projeler/ gizlilik/ → subpages
 assets/                 → theme.js, lang.js, themes.css, salvatore.mp3
-img/                    → avatar, cover and disc images
+img/                    → avatar, cover, disc and og (share) images
 ```
 
 ## Customization

@@ -1,0 +1,61 @@
+---
+layout: default
+title: 404
+description: Bu sayfa yok — ama puppy hâlâ burada :3
+permalink: /404.html
+sitemap: false
+---
+
+<div class="nf">
+  <img src="/img/puppy.gif" width="72" height="72" alt="" loading="lazy" decoding="async">
+  <p class="nf-code mono">404</p>
+  <h1 class="page-title" data-i18n="nf.title">burada bir şey yok</h1>
+  <p class="sub" data-i18n="nf.sub">bağlantı bozuk ya da sayfa taşınmış olabilir</p>
+  <div class="nf-actions">
+    <a class="nf-btn" href="/" data-i18n="nf.home">ana sayfa</a>
+    <a class="nf-btn ghost" href="/blog/" data-i18n="nf.blog">günlük</a>
+  </div>
+</div>
+
+<style>
+  .nf {
+    text-align: center;
+    padding: 40px 0 20px;
+  }
+  .nf img {
+    width: 72px;
+    height: 72px;
+    image-rendering: pixelated;
+    border-radius: 16px;
+  }
+  .nf-code {
+    margin: 14px 0 2px;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: var(--muted);
+  }
+  .nf-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 22px;
+  }
+  .nf-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--stroke);
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 14px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .nf-btn:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .nf-btn.ghost {
+    color: var(--muted);
+  }
+</style>

@@ -8,24 +8,29 @@ Sade, hızlı ve bağımlılıksız — Jekyll + GitHub Pages üzerinde çalış
 
 ## Özellikler
 
-- **Ana sayfa:** typewriter bio, öne çıkan projeler, hakkımda, sosyal linkler
+- **Ana sayfa:** bio, öne çıkan projeler, hakkımda, sosyal linkler
 - **Müzik çalar:** sağ altta açılan popup, oynat / durdur, ses seviyesi, ilerleme çubuğu, çarpıyla kapatma + mini butonla geri açma (tercih `localStorage`'da saklanır)
 - **Günlük (blog):** Jekyll posts (`_posts/`), RSS (`blog/feed.xml`)
 - **Defter:** utterances (GitHub Issues) tabanlı ziyaretçi defteri
 - **Projeler:** öne çıkan işlerin listelendiği sayfa
 - **Tema:** birden fazla renk teması, `T` kısayoluyla değiştirme, tercih saklanır
 - **Dil:** TR / EN desteği (`assets/lang.js` sözlüğü üzerinden), tercih saklanır
+- **SEO / paylaşım:** `og:` + `twitter:` etiketleri, `canonical`, otomatik `sitemap.xml` (`jekyll-sitemap`), `robots.txt`
+- **Paylaşım görseli:** `img/og.png` (1200x630) — sosyal önizlemelerde kullanılır
+- **404:** bozuk bağlantılarda site temasıyla aynı özel sayfa
 
 ## Dosya yapısı
 
 ```
 index.html              → ana sayfa (tek dosyalık)
+404.html                → özel 404 sayfası
+robots.txt              → arama motoru kuralları
 _layouts/default.html   → blog / defter / projeler / gizlilik iskeleti
 _layouts/post.html      → blog yazı iskeleti
 _posts/                 → günlük yazıları (markdown)
 blog/ defter/ projeler/ gizlilik/ → alt sayfalar
 assets/                 → theme.js, lang.js, themes.css, salvatore.mp3
-img/                    → avatar, kapak ve disk görselleri
+img/                    → avatar, kapak, disk ve og (paylaşım) görselleri
 ```
 
 ## Kendine göre ayarlama
