@@ -208,17 +208,29 @@ body {
   overflow-x: hidden;
 }
 
-/* Subtle top fade */
+/* Quiet atmosphere: two still glows and a faint upper texture */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 4%, transparent), transparent);
+  inset: 0;
+  background:
+    radial-gradient(ellipse 72% 38% at 50% -10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%),
+    radial-gradient(ellipse 34% 28% at 100% 8%, color-mix(in srgb, var(--accent2) 11%, transparent), transparent 72%),
+    radial-gradient(ellipse 28% 24% at 0% 92%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%);
+  pointer-events: none;
+  z-index: -2;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
   pointer-events: none;
   z-index: -1;
+  background-image: radial-gradient(color-mix(in srgb, var(--fg) 16%, transparent) 0.65px, transparent 0.65px);
+  background-size: 18px 18px;
+  opacity: 0.28;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 46%);
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 46%);
 }
 
 ::selection {
@@ -287,6 +299,15 @@ body::before {
 }
 .logo:hover {
   color: var(--accent);
+}
+.logo-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+  border: 1px solid var(--stroke);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 16%, transparent);
 }
 .nav-links {
   display: flex;
@@ -488,6 +509,12 @@ main, .shell {
   margin: 0 auto;
   padding: 48px 20px 32px;
 }
+/* Layout kalıbında shell > main iç içe: çift padding'i önle */
+.shell > main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
 
 h1 {
   font-size: 42px;
@@ -497,8 +524,52 @@ h1 {
   color: var(--fg);
 }
 
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center 18%;
+  flex: none;
+  border: 1px solid var(--stroke);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent),
+    0 10px 24px color-mix(in srgb, #000 28%, transparent);
+}
+.hero-copy {
+  flex: 1;
+  min-width: 0;
+}
+.hero-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-name-row h1 {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+.hero-name-row .status-pill {
+  flex: none;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero h1 {
+    background: linear-gradient(105deg, var(--fg) 0%, var(--fg) 58%, color-mix(in srgb, var(--accent) 78%, var(--fg)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
 .bio {
-  margin-top: 14px;
+  margin-top: 6px;
   font-size: 16.5px;
   max-width: 60ch;
   color: var(--fg);
@@ -539,6 +610,20 @@ h2 {
   margin-bottom: 8px;
   letter-spacing: -0.3px;
 }
+main > section > h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+main > section > h2::before {
+  content: "";
+  width: 16px;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  flex: none;
+}
 
 /* Rows / Project Cards */
 .row {
@@ -553,8 +638,9 @@ h2 {
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 .row:hover {
-  background: color-mix(in srgb, var(--card) 60%, transparent);
+  background: color-mix(in srgb, var(--card) 72%, transparent);
   border-color: var(--stroke);
+  box-shadow: inset 2px 0 0 var(--accent);
 }
 .row:hover .row-name {
   color: var(--accent);
@@ -573,11 +659,11 @@ h2 {
 .row-tag {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 11px;
-  color: var(--muted);
+  color: color-mix(in srgb, var(--accent) 62%, var(--muted));
   padding: 2px 7px;
   border-radius: 6px;
-  background: color-mix(in srgb, var(--fg) 6%, transparent);
-  border: 1px solid color-mix(in srgb, var(--stroke) 50%, transparent);
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
 }
 .row-arrow {
   margin-left: auto;
@@ -624,17 +710,22 @@ h2 {
   align-items: flex-start;
   margin-top: 14px;
   padding: 16px;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid var(--stroke);
-  background: color-mix(in srgb, var(--card) 45%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, transparent), transparent 42%),
+    color-mix(in srgb, var(--card) 62%, transparent);
+  box-shadow: 0 12px 32px color-mix(in srgb, #000 16%, transparent);
 }
 .about-wrap img {
   width: 140px;
   height: 140px;
   object-fit: cover;
+  object-position: center 20%;
   flex: none;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid var(--stroke);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 14%, transparent);
   transition: border-color 0.2s ease;
 }
 .about-wrap img:hover {
@@ -660,10 +751,10 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
-  border-radius: 10px;
+  padding: 7px 13px 7px 11px;
+  border-radius: 999px;
   border: 1px solid var(--stroke);
-  background: color-mix(in srgb, var(--card) 60%, transparent);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
   color: var(--fg);
   text-decoration: none;
   font-size: 13.5px;
@@ -716,8 +807,8 @@ h2 {
 }
 .rule {
   height: 1px;
-  margin: 24px 0;
-  background: var(--stroke);
+  margin: 22px 0 10px;
+  background: linear-gradient(90deg, var(--accent), var(--stroke) 46%, transparent);
 }
 
 .post-box {
@@ -733,8 +824,9 @@ h2 {
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 .post-box:hover {
-  background: color-mix(in srgb, var(--card) 60%, transparent);
+  background: color-mix(in srgb, var(--card) 72%, transparent);
   border-color: var(--stroke);
+  box-shadow: inset 2px 0 0 var(--accent);
 }
 .post-box:hover .pb-title {
   color: var(--accent);
@@ -852,7 +944,7 @@ h2 {
 }
 .player {
   border: 1px solid var(--stroke);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 14px 16px;
   display: flex;
   align-items: center;
@@ -860,11 +952,22 @@ h2 {
   background: var(--card);
   backdrop-filter: blur(20px) saturate(1.2);
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.28);
   position: relative;
   transform: translateX(120%);
   opacity: 0;
   transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.25, 1), opacity 0.35s ease, border-color 0.25s ease;
+}
+.player::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.75;
+  pointer-events: none;
 }
 .player-pop.open .player {
   transform: none;
@@ -1075,8 +1178,9 @@ h2 {
 /* Footer */
 footer {
   max-width: 720px;
-  margin: 0 auto;
-  padding: 24px 20px 36px;
+  margin: 8px auto 0;
+  padding: 18px 20px 36px;
+  border-top: 1px solid var(--stroke);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 11.5px;
   color: var(--muted);
@@ -1084,6 +1188,17 @@ footer {
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
+}
+footer kbd {
+  font-family: inherit;
+  font-size: 10px;
+  line-height: 1.4;
+  border: 1px solid var(--stroke);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 0 5px;
+  color: var(--fg);
+  background: color-mix(in srgb, var(--fg) 6%, transparent);
 }
 footer a {
   color: var(--muted);
@@ -1095,6 +1210,9 @@ footer a:hover {
 }
 footer .sep {
   opacity: 0.4;
+}
+footer .keys {
+  opacity: 0.8;
 }
 
 /* Scroll reveal animations */
@@ -1144,7 +1262,15 @@ body, .card, .shell, .player, .nav, .theme-btn, .theme-panel, .lang-panel,
     padding: 36px 16px 24px;
   }
   h1 {
-    font-size: 34px;
+    font-size: 32px;
+  }
+  .hero-top {
+    gap: 12px;
+  }
+  .hero-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
   }
   .about-wrap {
     flex-direction: column;
