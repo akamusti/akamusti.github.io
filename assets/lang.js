@@ -50,7 +50,7 @@
     "home.all": { tr: "tüm projeler →", en: "all projects →" },
     "home.bio": { tr: "Ur Virtual Puppyboy :3", en: "Ur Virtual Puppyboy :3" },
     "home.meta_langs": { tr: "tr / en", en: "tr / en" },
-    "home.meta_projects": { tr: "6 proje", en: "6 projects" },
+    "home.meta_projects": { tr: "7 proje", en: "7 projects" },
     "home.status": { tr: ":3", en: ":3" },
     "theme.hint": { tr: "tema seç · T ile turla", en: "select theme · T to cycle" }
   };
@@ -79,6 +79,10 @@
     "this-site": {
       tr: "Okuduğun sitenin ta kendisi — sade, temalı, müzikli.",
       en: "The very site you are reading — plain, themed, with music."
+    },
+    "castmane": {
+      tr: "Linux için çökme-güvenli ekran kaydedici — Wayland öncelikli, uygulama çökse bile çekim kurtulur.",
+      en: "Crash-safe screen recorder for Linux (Wayland-first) — footage survives even if the app crashes."
     }
   };
 
