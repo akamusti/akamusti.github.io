@@ -12,6 +12,22 @@ Bağımlılıksız vanilla HTML + CSS + JS yaz. Yeni bölüm eklersen `index.htm
 - `prefers-reduced-motion` desteğini koru.
 - Gizlilik: takip, analitik, reklam, harici veri gönderimi yok. Kalıcı bilgi yalnızca
   `localStorage` içinde (tema, dil, oynatıcı tercihi).
+- Harici veri (ör. GitHub katkıları) gerekiyorsa tokensız, herkese açık uç kullan;
+  başarısız olursa sayfa kırılmadan yedek içerikle devam et.
+- Erişilebilirlik: etkileşimli öğelere `aria-label`, canvas'a `role="img"` + açıklama ekle;
+  klavye ile kullanılamayan bileşen ekleme.
+- Performans: `<script>`lere `defer` koy, görsellere `width/height` + `loading="lazy"`
+  (kritik olanlara `fetchpriority="high"`) ver, yeni font/kütüphane eklemeden önce sor.
+
+## Kod kalitesi
+- Commit'ten önce JS dosyalarına `node --check` çalıştır.
+- Üçüncü parti servise gömülü kullanıcı adı/token değişirse tek yerden değişsin
+  (`data-*` özniteliği gibi); değeri JS/HTML içine sabit gömme.
+- Gizli bilgi bir kez bile commit'lendiyse geçmişten temizlenmeden iş bitmiş sayılmaz
+  (`git rm --cached` + geçmiş temizliği + token'ı iptal et).
+- `.gitignore` içinde `.env` olduğundan emin ol; örnek değerler için `.env.example` bırak.
+- Büyük medya (`*.mp3`, `*.jpg`) eklerken dosya boyutunu küçük tut; gereksiz yere
+  yeniden kodlama/kopyalama yapma.
 
 ## Kullanıcıyla iletişim
 - Kullanıcıyla her zaman Türkçe konuş.
