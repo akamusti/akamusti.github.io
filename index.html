@@ -22,6 +22,7 @@
 <link rel="canonical" href="https://akamusti.github.io/">
 <link rel="icon" href="img/pfp.jpg">
 <link rel="stylesheet" href="assets/themes.css">
+<link rel="stylesheet" href="assets/contribution-skyline.css">
 <noscript><style>.reveal{opacity:1!important;transform:none!important}.player-pop .player{transform:none!important;opacity:1!important}</style></noscript>
 <script>try{var _t=localStorage.getItem("akamusti-theme");if(_t)document.documentElement.setAttribute("data-theme",_t);}catch(e){}</script>
 <script>try{var _l=localStorage.getItem("akamusti-lang");if(_l==="en"||_l==="tr")document.documentElement.setAttribute("lang",_l);}catch(e){}</script>
@@ -118,6 +119,35 @@
       <p class="row-desc" data-proj-desc="kick-notifier">Sevdiğin Kick yayıncıları canlıya geçince haber veren site ve tarayıcı eklentileri.</p>
     </a>
     <a class="more-link" href="/projeler/" data-i18n="home.all">tüm projeler →</a>
+  </section>
+
+  <section class="reveal">
+    <h2 data-i18n="sec.skyline">hareket</h2>
+    <div class="skyline" data-skyline>
+      <div class="skyline-head">
+        <h3><strong data-sky-total data-sky-accent>0</strong> <span data-i18n="skyline.title">katkı — son bir yıl</span></h3>
+        <div class="skyline-toggle" role="group" aria-label="görünüm">
+          <button type="button" data-sky-view="2d" aria-pressed="false" title="düz ısı haritası">2D</button>
+          <button type="button" data-sky-view="3d" aria-pressed="true" title="3B silüet">3D</button>
+        </div>
+      </div>
+      <div style="position:relative;padding:12px 12px 0">
+        <div class="skyline-stage" data-sky-stage style="height:150px">
+          <canvas data-sky-canvas tabindex="0" role="img" aria-label="katkı grafiği"></canvas>
+        </div>
+        <div class="skyline-tip" data-sky-tip role="tooltip"></div>
+      </div>
+      <div class="skyline-stats">
+        <div><div class="stat-label" data-i18n="skyline.total">1 yıl toplam</div><div><span class="stat-value" data-sky-total data-sky-accent>0</span><span class="stat-unit" data-i18n="skyline.unit">katkı</span></div></div>
+        <div><div class="stat-label" data-i18n="skyline.busiest">en yoğun gün</div><div><span class="stat-value" data-sky-busiest data-sky-accent>0</span><span class="stat-unit" data-i18n="skyline.unit">katkı</span></div></div>
+        <div><div class="stat-label" data-i18n="skyline.longest">en uzun seri</div><div><span class="stat-value" data-sky-longest data-sky-accent>0</span><span class="stat-unit" data-i18n="skyline.days">gün</span></div></div>
+        <div><div class="stat-label" data-i18n="skyline.current">güncel seri</div><div><span class="stat-value" data-sky-current data-sky-accent>0</span><span class="stat-unit" data-i18n="skyline.days">gün</span></div></div>
+      </div>
+      <div class="skyline-foot">
+        <span data-i18n="skyline.hint">gün detayı için üzerine gel · 3B'de sürükleyerek döndür</span>
+        <div class="skyline-legend"><span data-i18n="skyline.less">az</span><button type="button" data-sky-sw="0" aria-label="seviye 0"></button><button type="button" data-sky-sw="1" aria-label="seviye 1"></button><button type="button" data-sky-sw="2" aria-label="seviye 2"></button><button type="button" data-sky-sw="3" aria-label="seviye 3"></button><button type="button" data-sky-sw="4" aria-label="seviye 4"></button><span data-i18n="skyline.more">çok</span></div>
+      </div>
+    </div>
   </section>
 
   <section class="reveal" id="hakkimda">
@@ -368,5 +398,6 @@
 </script>
 <script src="assets/theme.js" defer></script>
 <script src="assets/lang.js" defer></script>
+<script src="assets/contribution-skyline.js" defer></script>
 </body>
 </html>
