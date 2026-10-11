@@ -58,6 +58,7 @@
     "skyline.hint": { tr: "gün detayı için üzerine gel · 3B'de sürükleyerek döndür", en: "hover a day for details · drag to orbit in 3D" },
     "skyline.less": { tr: "az", en: "less" },
     "skyline.more": { tr: "çok", en: "more" },
+    "skyline.source": { tr: "veriler: github/akamusti", en: "data: github/akamusti" },
     "home.all": { tr: "tüm projeler →", en: "all projects →" },
     "home.bio": { tr: "Ur Virtual Puppyboy :3", en: "Ur Virtual Puppyboy :3" },
     "home.meta_langs": { tr: "tr / en", en: "tr / en" },

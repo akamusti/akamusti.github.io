@@ -151,20 +151,45 @@
     var ctx = canvas.getContext("2d");
     if (!stage || !canvas || !ctx) return;
 
-    var end = dayMs(new Date());
-    var grid = buildGrid(generateContributions(end, 7), end, 0);
-    var stats = computeStats(grid.cells);
-    var n = grid.cells.length, weeks = grid.weeks;
-
-    var wk = new Float32Array(n), dy = new Float32Array(n), lv = new Uint8Array(n), hgt = new Float32Array(n);
-    var zs = new Float32Array(n), hover = new Float32Array(n), dim = new Float32Array(n);
-    var polys = new Float32Array(n * 24), faces = new Uint8Array(n);
+    var grid = null, stats = null, n = 0, weeks = 0;
+    var wk = new Float32Array(0), dy = new Float32Array(0), lv = new Uint8Array(0), hgt = new Float32Array(0);
+    var zs = new Float32Array(0), hover = new Float32Array(0), dim = new Float32Array(0);
+    var polys = new Float32Array(0), faces = new Uint8Array(0);
     var order = [];
-    for (var i = 0; i < n; i++) {
-      order.push(i);
-      var c = grid.cells[i];
-      wk[i] = c.week; dy[i] = c.day; lv[i] = c.level;
-      hgt[i] = barHeight(c.count, grid.max);
+
+    // Veri setini değiştirir (önce demo, sonra gerçek GitHub verisi gelir).
+    function setData(data, endMs) {
+      grid = buildGrid(data, endMs, 0);
+      stats = computeStats(grid.cells);
+      n = grid.cells.length; weeks = grid.weeks;
+      wk = new Float32Array(n); dy = new Float32Array(n); lv = new Uint8Array(n); hgt = new Float32Array(n);
+      zs = new Float32Array(n); hover = new Float32Array(n); dim = new Float32Array(n);
+      polys = new Float32Array(n * 24); faces = new Uint8Array(n);
+      order = [];
+      for (var i = 0; i < n; i++) {
+        order.push(i);
+        var c = grid.cells[i];
+        wk[i] = c.week; dy[i] = c.day; lv[i] = c.level;
+        hgt[i] = barHeight(c.count, grid.max);
+      }
+      hovered = -1; pinned = -1; activeIdx = -1;
+      updateTip();
+      relayout(); kick();
+    }
+
+    // Gerçek GitHub katkıları (herkese açık veri, tokensız). Olmazsa demo veriyle devam.
+    function loadReal() {
+      var user = root.getAttribute("data-sky-user") || "akamusti";
+      fetch("https://github-contributions-api.jogruber.de/v4/" + encodeURIComponent(user) + "?y=last")
+        .then(function (res) { if (!res.ok) throw new Error("http " + res.status); return res.json(); })
+        .then(function (json) {
+          var list = json && json.contributions;
+          if (!list || !list.length) return;
+          var data = list.map(function (d) { return { date: d.date, count: +d.count || 0 }; });
+          setData(data, dayMs(data[data.length - 1].date));
+          retheme();
+        })
+        .catch(function () { /* demo verisiyle devam */ });
     }
 
     var t = 0, target = 0, entered = false;
@@ -368,7 +393,7 @@
       } catch (e) { return ds; }
     }
     function updateTip() {
-      if (activeIdx >= 0 && grid.cells[activeIdx]) {
+      if (activeIdx >= 0 && grid && grid.cells[activeIdx]) {
         var cc = grid.cells[activeIdx];
         tip.innerHTML = "<strong>" + (cc.count ? cc.count : "0") + "</strong><span> · " + fmtDay(cc.date) + "</span>";
         tip.style.opacity = "1"; tipW = tip.offsetWidth || 120;
@@ -444,7 +469,10 @@
       });
     });
 
+    var bootEnd = dayMs(new Date());
+    setData(generateContributions(bootEnd, 7), bootEnd);
     retheme(); relayout();
+    loadReal();
     var io = null;
     function enter() { if (entered) return; entered = true; if (reduced) t = target; target = view === "3d" ? 1 : 0; kick(); }
     if ("IntersectionObserver" in window) {
