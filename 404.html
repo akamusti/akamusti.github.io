@@ -26,7 +26,7 @@ sitemap: false
     width: 72px;
     height: 72px;
     image-rendering: pixelated;
-    border-radius: 16px;
+    border-radius: 0;
   }
   .nf-code {
     margin: 14px 0 2px;
@@ -44,15 +44,15 @@ sitemap: false
   .nf-btn {
     display: inline-block;
     padding: 8px 16px;
-    border-radius: 999px;
-    border: 1px solid var(--stroke);
+    border-radius: 0;
+    border: 0;
     color: var(--fg);
     text-decoration: none;
     font-size: 14px;
-    transition: border-color .2s ease, transform .2s ease;
+    transition: background-color .2s ease, transform .2s ease;
   }
   .nf-btn:hover {
-    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
     transform: translateY(-1px);
   }
   .nf-btn.ghost {

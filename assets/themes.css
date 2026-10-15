@@ -1328,3 +1328,150 @@ body, .card, .shell, .player, .nav, .theme-btn, .theme-panel, .lang-panel,
     font-size: 14.5px;
   }
 }
+
+/* ============================================================
+   Flat / Borderless Override
+   Tüm kutu, kart, buton ve rozetlerde çerçeve yok, köşeler kare.
+   ============================================================ */
+
+/* Tüm elemanlarda varsayılan çerçeve ve yuvarlatma kapalı */
+*,
+*::before,
+*::after {
+  border: 0;
+  border-radius: 0;
+}
+
+/* Ayırıcı çizgiler korunur (bunlar çerçeve değil, yapısal ayırıcı) */
+.nav,
+footer,
+.rule,
+.theme-hint,
+.post-content hr,
+.post-content blockquote {
+  border: 0;
+}
+.nav {
+  box-shadow: 0 1px 0 var(--stroke);
+}
+footer {
+  box-shadow: 0 -1px 0 var(--stroke);
+}
+.theme-hint {
+  box-shadow: 0 1px 0 var(--stroke);
+  padding-bottom: 8px;
+}
+.rule {
+  background: linear-gradient(90deg, var(--accent), var(--stroke) 46%, transparent);
+}
+.post-content hr {
+  box-shadow: none;
+  background: var(--stroke);
+}
+.post-content blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 4px 18px;
+}
+
+/* Daire olması gerekenler: durum noktası, tema noktaları, diski */
+.status-dot,
+.disc,
+.player-fab,
+.play,
+.vol input[type="range"]::-webkit-slider-thumb,
+.vol input[type="range"]::-moz-range-thumb {
+  border-radius: 50%;
+}
+
+/* Yatay ince barlar kare kalsın */
+.theme-dots i {
+  border: 2px solid var(--card);
+  border-radius: 50%;
+}
+.bar,
+.bar > div,
+.vol input[type="range"],
+main > section > h2::before,
+.player::before {
+  border-radius: 0;
+}
+
+/* Kartlarda çerçeve yerine yalnızca dolgu + gölge */
+.row,
+.post-box,
+.about-wrap,
+.player,
+.theme-panel,
+.lang-panel {
+  border: 0;
+}
+.row:hover,
+.post-box:hover {
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* Avatar / logo çerçevesiz */
+.hero-avatar,
+.logo-mark,
+.about-wrap img,
+.disc,
+.post-content img {
+  border: 0;
+  box-shadow: none;
+}
+.about-wrap img:hover {
+  border: 0;
+}
+.player.playing .disc,
+.player-close:hover,
+.play:hover,
+.player-fab:hover {
+  border-color: transparent;
+}
+
+/* Buton ve rozetler */
+.icon-btn,
+.theme-btn,
+.status-pill,
+.row-tag,
+.soc-chip,
+.more-link,
+.back,
+.theme-opt,
+.lang-opt,
+.post-content code,
+.post-content pre,
+.theme-hint kbd,
+.player-close,
+.play {
+  border: 0;
+}
+.status-pill,
+.row-tag,
+.soc-chip {
+  box-shadow: inset 0 0 0 1px var(--stroke);
+}
+.soc-chip:hover {
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.post-content pre {
+  box-shadow: inset 0 0 0 1px var(--stroke);
+}
+
+/* Gölgeler yuvarlak köşe izlenimi bırakmasın */
+.about-wrap,
+.player,
+.theme-panel,
+.lang-panel {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+.player-fab {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobil avatar köşesi de kare */
+@media (max-width: 640px) {
+  .hero-avatar {
+    border-radius: 0;
+  }
+}
