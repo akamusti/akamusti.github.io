@@ -1553,3 +1553,104 @@ footer kbd {
     border-radius: 0;
   }
 }
+
+/* ============================================================
+   MOBİL / DOKUNMATIK
+   ============================================================ */
+
+/* Dokunmatikte hover yapışı kalmasın; efektler yalnız fare/pen için */
+@media (hover: none) {
+  .row:hover,
+  .post-box:hover {
+    background: transparent;
+    box-shadow: none;
+  }
+  .soc-chip:hover {
+    background: color-mix(in srgb, var(--card) 70%, transparent);
+    box-shadow: inset 0 0 0 1px var(--stroke);
+    color: var(--fg);
+  }
+  .nav .theme-btn:hover,
+  .icon-btn:hover {
+    background: transparent;
+  }
+  .more-link:hover,
+  .back:hover {
+    background: transparent;
+    color: var(--fg);
+  }
+  .about-wrap img:hover {
+    box-shadow: none;
+  }
+  .player-fab:hover,
+  .player-close:hover {
+    border-color: transparent;
+    color: var(--fg);
+  }
+  .play:hover {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--fg);
+    transform: none;
+  }
+  .bar:hover {
+    height: 4px;
+  }
+}
+
+/* Çerçevesiz toggle'da durum ayrımı görünür kalsın */
+.skyline-toggle {
+  box-shadow: inset 0 0 0 1px var(--stroke);
+}
+.skyline-toggle button[aria-pressed="false"] {
+  background: color-mix(in srgb, var(--fg) 6%, transparent);
+}
+
+/* Küçük ekranda dokunma hedefleri yeterince büyük olsun */
+@media (max-width: 640px) {
+  .icon-btn,
+  .nav .theme-btn {
+    min-width: 40px;
+    height: 40px;
+  }
+  .nav-links a {
+    padding: 8px 8px;
+  }
+  .soc-chip {
+    padding: 10px 14px 10px 12px;
+  }
+  .play {
+    width: 44px;
+    height: 44px;
+  }
+  .player-close {
+    width: 30px;
+    height: 30px;
+    top: -12px;
+    right: -12px;
+  }
+  .player-fab {
+    width: 52px;
+    height: 52px;
+  }
+  .row,
+  .post-box {
+    padding: 16px 14px;
+    margin-left: -14px;
+    margin-right: -14px;
+  }
+  .skyline-toggle button {
+    min-width: 44px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 430px) {
+  .icon-btn,
+  .nav .theme-btn {
+    min-width: 36px;
+    height: 36px;
+  }
+  .nav-links a {
+    padding: 7px 6px;
+  }
+}
