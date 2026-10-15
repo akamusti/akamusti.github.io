@@ -300,15 +300,6 @@ body::after {
 .logo:hover {
   color: var(--accent);
 }
-.logo-mark {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex: none;
-  border: 1px solid var(--stroke);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 16%, transparent);
-}
 .nav-links {
   display: flex;
   gap: 16px;
@@ -1412,7 +1403,6 @@ main > section > h2::before,
 
 /* Avatar / logo çerçevesiz */
 .hero-avatar,
-.logo-mark,
 .about-wrap img,
 .disc,
 .post-content img {
