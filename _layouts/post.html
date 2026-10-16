@@ -1,12 +1,125 @@
 ---
 layout: default
 ---
+{% assign words = content | strip_html | number_of_words %}
+{% assign minutes = words | divided_by: 200 | plus: 1 %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.title | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "url": {{ site.url | append: page.url | jsonify }},
+  "inLanguage": "tr",
+  "author": {
+    "@type": "Person",
+    "name": "akaMusti",
+    "url": {{ site.url | jsonify }}
+  }
+}
+</script>
+
 <a class="back" href="/blog/" data-i18n="back.blog">&larr; tüm yazılar</a>
 
 <article>
   <h1 class="post-title">{{ page.title }}</h1>
-  <p class="post-meta">{{ page.date | date: "%d.%m.%Y" }}{% if page.description %} — {{ page.description }}{% endif %}</p>
+  <p class="post-meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time>
+    <span class="sep">·</span>
+    <span class="pb-read">{{ minutes }} <span data-i18n="blog.min">dk okuma</span></span>
+    {% if page.description %}
+    <span class="sep">·</span>
+    <span>{{ page.description }}</span>
+    {% endif %}
+  </p>
+  {% if page.tags and page.tags.size > 0 %}
+  <div class="post-tags" role="list" data-i18n-aria="post.tags" aria-label="etiketler">
+    {% for tag in page.tags %}
+    <span class="tag" role="listitem">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
   <div class="post-content">
 {{ content }}
   </div>
+
+  <div class="post-actions">
+    <button type="button" class="post-action" id="postShare" data-i18n="post.share">paylaş</button>
+    <button type="button" class="post-action" id="postCopy" data-i18n="post.copy">bağlantıyı kopyala</button>
+  </div>
+
+  {% if page.previous or page.next %}
+  <nav class="post-nav">
+    {% if page.previous %}
+    <a class="post-nav-link prev" href="{{ page.previous.url }}">
+      <span class="post-nav-label" data-i18n="post.prev">önceki yazı</span>
+      <span class="post-nav-title">{{ page.previous.title }}</span>
+    </a>
+    {% endif %}
+    {% if page.next %}
+    <a class="post-nav-link next" href="{{ page.next.url }}">
+      <span class="post-nav-label" data-i18n="post.next">sonraki yazı</span>
+      <span class="post-nav-title">{{ page.next.title }}</span>
+    </a>
+    {% endif %}
+  </nav>
+  {% endif %}
 </article>
+
+<script>
+  // paylaş / bağlantıyı kopyala — harici servis yok, veri gönderilmez
+  (function () {
+    var copyBtn = document.getElementById("postCopy");
+    var shareBtn = document.getElementById("postShare");
+    if (!copyBtn && !shareBtn) return;
+
+    function lang() {
+      return (window.__akamustiLang && window.__akamustiLang.current()) || "tr";
+    }
+    function t(key, fb) {
+      var v = window.__akamustiLang && window.__akamustiLang.t(key, lang());
+      return v || fb;
+    }
+    function flash(btn, key, fb) {
+      if (!btn) return;
+      var base = btn.getAttribute("data-i18n");
+      btn.textContent = t(key, fb);
+      clearTimeout(btn._flash);
+      btn._flash = setTimeout(function () {
+        if (base) btn.textContent = t(base, lang()) || btn.textContent;
+      }, 1800);
+    }
+    function copy() {
+      var url = location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(
+          function () { flash(copyBtn, "post.copied", "kopyalandı :3"); },
+          function () {}
+        );
+        return;
+      }
+      var ta = document.createElement("textarea");
+      ta.value = url;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-1000px";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); flash(copyBtn, "post.copied", "kopyalandı :3"); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+
+    if (copyBtn) copyBtn.addEventListener("click", copy);
+    if (shareBtn) {
+      shareBtn.addEventListener("click", function () {
+        if (navigator.share) {
+          navigator.share({ title: document.title, url: location.href }).catch(function () {});
+        } else {
+          copy();
+        }
+      });
+    }
+  })();
+</script>

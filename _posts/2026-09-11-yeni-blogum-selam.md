@@ -1,6 +1,7 @@
 ---
 title: "Yeni bir şeyler deniyorum hayırlısı"
 description: Bundan sonra neler yapacapım??
+tags: [blog, kişisel]
 ---
 
 Bugünden itibaren haftalık olarak blog yazmayı bplanlıyorum. Projelerimde ne yapıcam ya da kendi hayatımla ilgili vs..

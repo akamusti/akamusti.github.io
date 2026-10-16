@@ -20,6 +20,7 @@
 <meta name="twitter:description" content="{{ page.description | default: site.description }}">
 <meta name="twitter:image" content="{{ site.url }}/img/og.png">
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" type="application/rss+xml" title="akaMusti — günlük" href="/blog/feed.xml">
 <link rel="icon" href="/img/pfp.jpg">
 <link rel="stylesheet" href="/assets/themes.css">
 <noscript><style>.reveal{opacity:1!important;transform:none!important}.player-pop .player{transform:none!important;opacity:1!important}</style></noscript>
@@ -27,6 +28,8 @@
 <script>try{var _l=localStorage.getItem("akamusti-lang");if(_l==="en"||_l==="tr")document.documentElement.setAttribute("lang",_l);}catch(e){}</script>
 </head>
 <body>
+
+<a class="skip-link" href="#main" data-i18n="a11y.skip">içeriğe atla</a>
 
 <header class="nav">
   <div class="nav-in">
@@ -59,7 +62,7 @@
 </header>
 
 <div class="shell reveal">
-  <main>
+  <main id="main" tabindex="-1">
 {{ content }}
   </main>
 </div>

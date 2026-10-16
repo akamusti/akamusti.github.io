@@ -841,6 +841,158 @@ main > section > h2::before {
   text-align: center;
 }
 
+/* Blog: okuma süresi, etiketler, paylaşım, gezinme */
+.pb-read {
+  flex: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  color: color-mix(in srgb, var(--muted) 82%, var(--accent));
+  white-space: nowrap;
+}
+.post-meta .pb-read {
+  font-size: inherit;
+  color: var(--muted);
+}
+.post-meta .sep,
+.post-meta time {
+  color: var(--muted);
+}
+.post-meta .sep {
+  opacity: 0.55;
+}
+.blog-rss-row {
+  margin-top: 18px;
+}
+.blog-rss-row .more-link {
+  gap: 7px;
+}
+.blog-rss-row .more-link svg {
+  width: 13px;
+  height: 13px;
+  flex: none;
+  opacity: 0.9;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: -16px 0 26px;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  color: color-mix(in srgb, var(--accent) 68%, var(--muted));
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
+  border: 0;
+  border-radius: 0;
+}
+
+.post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 34px;
+  padding-top: 18px;
+  box-shadow: inset 0 1px 0 var(--stroke);
+}
+.post-action {
+  padding: 7px 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 1px var(--stroke);
+  cursor: pointer;
+  transition: color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+.post-action:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 26px;
+}
+.post-nav-link {
+  display: block;
+  padding: 12px 14px;
+  color: var(--fg);
+  text-decoration: none;
+  background: color-mix(in srgb, var(--card) 62%, transparent);
+  border: 0;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 1px var(--stroke);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.post-nav-link:hover {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.post-nav-label {
+  display: block;
+  margin-bottom: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+.post-nav-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.post-nav-link:hover .post-nav-title {
+  color: var(--accent);
+}
+@media (min-width: 560px) {
+  .post-nav {
+    grid-template-columns: 1fr 1fr;
+  }
+  .post-nav-link.next {
+    grid-column: 2;
+    text-align: right;
+  }
+}
+
+/* İçeriğe atla (klavye) */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  background: var(--bg);
+  text-decoration: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 1px var(--accent);
+  transform: translateY(-200%);
+  transition: transform 0.16s ease;
+}
+.skip-link:focus {
+  transform: none;
+}
+#main {
+  scroll-margin-top: 70px;
+}
+#main:focus,
+#main:focus-visible {
+  outline: none;
+}
+
 .post-title {
   font-size: 32px;
   font-weight: 800;
@@ -1301,6 +1453,12 @@ body, .card, .shell, .player, .nav, .theme-btn, .theme-panel, .lang-panel,
   .soc-chip {
     padding: 7px 12px;
     font-size: 13px;
+  }
+  .post-box .pb-read {
+    display: none;
+  }
+  .post-action {
+    padding: 9px 14px;
   }
 }
 

@@ -10,12 +10,13 @@ Simple, fast and dependency-free — a one-person personal site running on Jekyl
 
 - **Homepage:** bio, featured projects, about, social links
 - **Music player:** bottom-right popup with play / pause, volume, seek bar, close via ✕ + reopen via mini button (preference stored in `localStorage`)
-- **Journal (blog):** Jekyll posts (`_posts/`), RSS (`blog/feed.xml`)
+- **Journal (blog):** Jekyll posts (`_posts/`), RSS (`blog/feed.xml`), reading time, tags, previous/next post navigation, copy / share link
 - **Guestbook:** utterances (GitHub Issues) based guestbook
 - **Projects:** page listing featured work
 - **Themes:** multiple color themes, switch with the `T` shortcut, preference is saved
 - **Language:** TR / EN support (via the `assets/lang.js` dictionary), preference is saved
-- **SEO / sharing:** `og:` + `twitter:` tags, `canonical`, automatic `sitemap.xml` (`jekyll-sitemap`), `robots.txt`
+- **Accessibility:** "skip to content" link for keyboard users, `aria-*` labels, `prefers-reduced-motion` support
+- **SEO / sharing:** `og:` + `twitter:` tags, `canonical`, RSS discovery link, `application/ld+json` structured data, automatic `sitemap.xml` (`jekyll-sitemap`), `robots.txt`
 - **Share image:** `img/og.png` (1200x630) — used in social previews
 - **404:** custom not-found page styled like the rest of the site
 
@@ -42,6 +43,7 @@ img/                    → avatar, cover, disc and og (share) images
 - **Avatar / images:** replace files in the `img/` folder
 - **Theme colors:** `assets/themes.css` + `assets/theme.js`
 - **Translations:** the `STR` dictionary in `assets/lang.js`
+- **Post tags:** add `tags: [blog, personal]` to a `_posts/` file's front matter
 
 ## Run locally
 
