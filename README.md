@@ -1,59 +1,59 @@
 # akaMusti
 
-[🇬🇧 English version](README.en.md)
+[English](README.en.md) · [Siteyi ziyaret et](https://akamusti.github.io)
 
-Kişisel sitem: [akamusti.github.io](https://akamusti.github.io)
+Kişisel sitem; projelerimi, yazılarımı ve internetteki hesaplarımı bir araya getiren sade bir köşe. Jekyll ile oluşturulur ve GitHub Pages üzerinde yayınlanır.
 
-Sade, hızlı ve bağımlılıksız — Jekyll + GitHub Pages üzerinde çalışan tek kişilik kişisel site.
+## Sitede
 
-## Özellikler
+- **Projeler** — üzerinde çalıştığım işler ve kaynak kodları
+- **Hesaplar** — GitHub, X, Kick, Letterboxd, Serializd, IMDb, AniList, MyAnimeList, Pinterest, RankOne ve Spotify profillerim
+- **Günlük** — Markdown yazıları, RSS akışı, okuma süresi ve yazı paylaşımı
+- **Defter** — GitHub Issues üzerinden çalışan ziyaretçi defteri
+- **TR / EN** — dil tercihi tarayıcıda saklanır
+- **Erişilebilirlik** — klavye ile gezinme, içeriğe atlama bağlantısı ve azaltılmış hareket desteği
 
-- **Ana sayfa:** bio, öne çıkan projeler, hakkımda, sosyal linkler
-- **Müzik çalar:** sağ altta açılan popup, oynat / durdur, ses seviyesi, ilerleme çubuğu, çarpıyla kapatma + mini butonla geri açma (tercih `localStorage`'da saklanır)
-- **Günlük (blog):** Jekyll posts (`_posts/`), RSS (`blog/feed.xml`), okuma süresi, etiketler, önceki/sonraki yazı gezinmesi, bağlantı kopyala / paylaş
-- **Defter:** utterances (GitHub Issues) tabanlı ziyaretçi defteri
-- **Projeler:** öne çıkan işlerin listelendiği sayfa
-- **Tema:** birden fazla renk teması, `T` kısayoluyla değiştirme, tercih saklanır
-- **Dil:** TR / EN desteği (`assets/lang.js` sözlüğü üzerinden), tercih saklanır
-- **Erişilebilirlik:** klavye için "içeriğe atla" bağlantısı, `aria-*` etiketleri, `prefers-reduced-motion` desteği
-- **SEO / paylaşım:** `og:` + `twitter:` etiketleri, `canonical`, RSS keşif etiketi, `application/ld+json` yapısal veri, otomatik `sitemap.xml` (`jekyll-sitemap`), `robots.txt`
-- **Paylaşım görseli:** `img/og.png` (1200x630) — sosyal önizlemelerde kullanılır
-- **404:** bozuk bağlantılarda site temasıyla aynı özel sayfa
+Tasarım bilerek sakin tutuldu: içerik önde, gereksiz hareket ve dikkat dağıtıcı öğeler yok.
 
-## Dosya yapısı
+## Proje yapısı
 
+```text
+index.html              Ana sayfa
+hesaplar/index.html     Sosyal ve platform hesapları
+projeler/index.html     Proje listesi
+blog/index.html         Yazı arşivi ve RSS
+defter/index.html       Ziyaretçi defteri
+gizlilik/index.html     Gizlilik açıklaması
+404.html                Bulunamayan sayfa
+_layouts/               Jekyll sayfa ve yazı şablonları
+_posts/                 Markdown günlük yazıları
+assets/                 CSS, JavaScript ve medya dosyaları
+img/                    Site görselleri
 ```
-index.html              → ana sayfa (tek dosyalık)
-404.html                → özel 404 sayfası
-robots.txt              → arama motoru kuralları
-_layouts/default.html   → blog / defter / projeler / gizlilik iskeleti
-_layouts/post.html      → blog yazı iskeleti
-_posts/                 → günlük yazıları (markdown)
-blog/ defter/ projeler/ gizlilik/ → alt sayfalar
-assets/                 → theme.js, lang.js, themes.css, salvatore.mp3
-img/                    → avatar, kapak, disk ve og (paylaşım) görselleri
-```
-
-## Kendine göre ayarlama
-
-- **İsim / bio:** `index.html` içindeki `<h1>` ve `home.bio` metni (`assets/lang.js`)
-- **Projeler:** `index.html` içindeki `.row` blokları + `PROJ` sözlüğü (`assets/lang.js`)
-- **Sosyal linkler:** `index.html` içindeki `.soc` blokları
-- **Müzik:** `assets/salvatore.mp3` dosyasını değiştir, `.title` / `.artist` yazılarını güncelle
-- **Avatar / görseller:** `img/` klasöründeki dosyaları değiştir
-- **Tema renkleri:** `assets/themes.css` + `assets/theme.js`
-- **Çeviriler:** `assets/lang.js` içindeki `STR` sözlüğü
-- **Yazı etiketleri:** `_posts/` dosyasının front matter'ına `tags: [blog, kişisel]` ekle
 
 ## Yerelde çalıştırma
 
-```bash
-# ana sayfa için herhangi bir statik sunucu yeterli
-python3 -m http.server 8000
+Jekyll ve gerekli eklentiler kuruluysa:
 
-# blog (Jekyll) için
-bundle install
-bundle exec jekyll serve
+```bash
+jekyll serve
 ```
 
-Pushladığında GitHub Pages otomatik yayınlar.
+Ardından `http://localhost:4000` adresini aç. Yalnızca HTML/CSS görünümüne bakmak için:
+
+```bash
+python3 -m http.server 8000
+```
+
+Bu yöntem Jekyll şablonlarını veya günlük yazılarını derlemez. `main` dalına gönderilen değişiklikler GitHub Pages tarafından yayınlanır.
+
+## İçeriği güncelleme
+
+- Hesap bağlantıları ve görünen kullanıcı adları: `hesaplar/index.html`
+- Projeler: `projeler/index.html`
+- Yeni yazı: `_posts/` içine `YYYY-AA-GG-baslik.md` biçiminde dosya ekle
+- TR / EN metinleri: `assets/lang.js`
+- Ana sayfa ve iç sayfa stilleri: `assets/home.css`, `assets/site.css`
+- Tema renkleri: `assets/themes.css`
+
+Sitede analitik, reklam veya ziyaretçi takibi kullanılmaz. Defter, yorumları yayınlamak için GitHub Issues hizmetine bağlanır.

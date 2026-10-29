@@ -1,59 +1,59 @@
 # akaMusti
 
-[🇹🇷 Türkçe sürüm](README.md)
+[Türkçe](README.md) · [Visit the site](https://akamusti.github.io)
 
-Source code of my personal site: [akamusti.github.io](https://akamusti.github.io)
+My personal corner of the internet: a simple home for my projects, writing, and accounts across other platforms. Built with Jekyll and published on GitHub Pages.
 
-Simple, fast and dependency-free — a one-person personal site running on Jekyll + GitHub Pages.
+## What's here
 
-## Features
+- **Projects** — things I'm working on and their source code
+- **Accounts** — my profiles on GitHub, X, Kick, Letterboxd, Serializd, IMDb, AniList, MyAnimeList, Pinterest, RankOne, and Spotify
+- **Journal** — Markdown posts, an RSS feed, reading times, and post sharing
+- **Guestbook** — a visitor book powered by GitHub Issues
+- **TR / EN** — language preference is stored in the browser
+- **Accessibility** — keyboard navigation, a skip link, and reduced-motion support
 
-- **Homepage:** bio, featured projects, about, social links
-- **Music player:** bottom-right popup with play / pause, volume, seek bar, close via ✕ + reopen via mini button (preference stored in `localStorage`)
-- **Journal (blog):** Jekyll posts (`_posts/`), RSS (`blog/feed.xml`), reading time, tags, previous/next post navigation, copy / share link
-- **Guestbook:** utterances (GitHub Issues) based guestbook
-- **Projects:** page listing featured work
-- **Themes:** multiple color themes, switch with the `T` shortcut, preference is saved
-- **Language:** TR / EN support (via the `assets/lang.js` dictionary), preference is saved
-- **Accessibility:** "skip to content" link for keyboard users, `aria-*` labels, `prefers-reduced-motion` support
-- **SEO / sharing:** `og:` + `twitter:` tags, `canonical`, RSS discovery link, `application/ld+json` structured data, automatic `sitemap.xml` (`jekyll-sitemap`), `robots.txt`
-- **Share image:** `img/og.png` (1200x630) — used in social previews
-- **404:** custom not-found page styled like the rest of the site
+The design is intentionally quiet: content first, with no unnecessary motion or distractions.
 
-## File structure
+## Project structure
 
+```text
+index.html              Homepage
+hesaplar/index.html     Social and platform accounts
+projeler/index.html     Project list
+blog/index.html         Post archive and RSS
+defter/index.html       Guestbook
+gizlilik/index.html     Privacy information
+404.html                Not-found page
+_layouts/               Jekyll page and post layouts
+_posts/                 Markdown journal posts
+assets/                 CSS, JavaScript, and media
+img/                    Site images
 ```
-index.html              → homepage (single file)
-404.html                → custom 404 page
-robots.txt              → crawler rules
-_layouts/default.html   → layout for blog / guestbook / projects / privacy
-_layouts/post.html      → blog post layout
-_posts/                 → journal posts (markdown)
-blog/ defter/ projeler/ gizlilik/ → subpages
-assets/                 → theme.js, lang.js, themes.css, salvatore.mp3
-img/                    → avatar, cover, disc and og (share) images
-```
-
-## Customization
-
-- **Name / bio:** `<h1>` and the `home.bio` string in `index.html` (`assets/lang.js`)
-- **Projects:** `.row` blocks in `index.html` + the `PROJ` dictionary (`assets/lang.js`)
-- **Social links:** `.soc` blocks in `index.html`
-- **Music:** replace `assets/salvatore.mp3`, update the `.title` / `.artist` texts
-- **Avatar / images:** replace files in the `img/` folder
-- **Theme colors:** `assets/themes.css` + `assets/theme.js`
-- **Translations:** the `STR` dictionary in `assets/lang.js`
-- **Post tags:** add `tags: [blog, personal]` to a `_posts/` file's front matter
 
 ## Run locally
 
-```bash
-# any static server is enough for the homepage
-python3 -m http.server 8000
+With Jekyll and its required plugins installed:
 
-# for the blog (Jekyll)
-bundle install
-bundle exec jekyll serve
+```bash
+jekyll serve
 ```
 
-Pushing to `main` deploys automatically via GitHub Pages.
+Then open `http://localhost:4000`. To preview only the HTML and CSS:
+
+```bash
+python3 -m http.server 8000
+```
+
+This does not render Jekyll templates or journal posts. Changes pushed to `main` are published by GitHub Pages.
+
+## Updating content
+
+- Account links and displayed usernames: `hesaplar/index.html`
+- Projects: `projeler/index.html`
+- New post: add a `YYYY-MM-DD-title.md` file to `_posts/`
+- TR / EN text: `assets/lang.js`
+- Homepage and inner-page styles: `assets/home.css`, `assets/site.css`
+- Theme colors: `assets/themes.css`
+
+The site uses no analytics, ads, or visitor tracking. The guestbook connects to GitHub Issues to publish comments.
