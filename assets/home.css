@@ -100,6 +100,56 @@ body.home-page::after {
   text-decoration-color: currentColor;
 }
 
+.home-socials {
+  margin-top: 56px;
+}
+
+.home-socials h2 {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 36px;
+}
+
+.home-social-grid a {
+  min-width: 0;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--stroke);
+  color: var(--fg);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.home-social-grid a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.home-social-handle {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-social-grid a:hover .home-social-handle {
+  color: inherit;
+}
+
 .home-footer {
   padding-bottom: 24px;
   text-align: right;
@@ -135,6 +185,20 @@ body.home-page::after {
     margin-top: 30px;
   }
 
+  .home-socials {
+    margin-top: 44px;
+  }
+
+  .home-social-grid {
+    column-gap: 20px;
+  }
+
+  .home-social-grid a {
+    min-height: 44px;
+    gap: 6px;
+    font-size: 12px;
+  }
+
   .home-footer {
     padding-bottom: 18px;
   }
@@ -143,6 +207,7 @@ body.home-page::after {
 @media (prefers-reduced-motion: reduce) {
   .home-lang-button,
   .home-links a,
+  .home-social-grid a,
   .home-footer a {
     transition: none;
   }
