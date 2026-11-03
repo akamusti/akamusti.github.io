@@ -1,90 +1,142 @@
 <!DOCTYPE html>
-<html lang="tr" min-width="100%" min-height="100%">
+<html lang="tr">
   <head>
     <title>akaMusti</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-        <style>
-
-          * {
-        font-family: 'JetBrains Mono', monospace;
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "JetBrains Mono", monospace;
+        background: #121212;
+        color: #f2f2f2;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-            }
-        ul.yan-yana {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
+      }
 
-        ul.yan-yana li::after {
-            content: " - ";
-            color: #666; 
-            margin-left: 10px; 
-        }
+      * {
+        box-sizing: border-box;
+      }
 
-        ul.yan-yana li {
-            display: inline-block;
-            margin-right: 15px; 
-        }
+      body {
+        width: min(100% - 2rem, 680px);
+        margin: 0 auto;
+        padding: 4rem 0 2rem;
+        line-height: 1.7;
+      }
 
-        ul.yan-yana li:last-child::after {
-            content: "";
-        }
+      header {
+        margin-bottom: 2rem;
+      }
 
-        ul.sosyal-medya li {
-            display: inline-block;
-            margin-right: 10px;
-        }
+      h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        letter-spacing: -0.08em;
+      }
 
-        ul.yan-yana a {
-            text-decoration: none;
-            color: green;
-        }
+      header p {
+        margin: 0.4rem 0 0;
+        color: #a3a3a3;
+      }
 
+      section {
+        padding: 1.5rem 0;
+        border-top: 1px solid #2d2d2d;
+      }
+
+      h2 {
+        margin: 0 0 0.8rem;
+        color: #a3a3a3;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      a {
+        color: #8bd49c;
+        text-decoration: none;
+        text-underline-offset: 0.2em;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:focus-visible {
+        outline: 2px solid #8bd49c;
+        outline-offset: 4px;
+      }
+
+      footer {
+        padding-top: 1rem;
+        border-top: 1px solid #2d2d2d;
+        color: #777;
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 480px) {
         body {
-        background-color: #121212;
-        color: #ffffff;
+          padding-top: 2.5rem;
         }
-        html {
-         font-size: 125%; 
-        }
-
-      
+      }
     </style>
   </head>
-  <body link="green" vlink="Red" alink="blue">
-    <header><font size="6"><b></b>akaMusti</font></header>
-    <hr>
-    <p><i>Kendimce bir şeyler üretmeye çalışıyorum. Sanırım bir de minimalist şeyleri seviyorum.</i></p>
-    <h3>Sosyal Medya Hesaplarım:</h3>
-    <ul class="yan-yana">
-      <li><a href="https://x.com/aakamusti" target="_blank">Twitter/X</a></li>
-      <li><a href="https://open.spotify.com/user/31wxrxbnvws63sdriqfgkuebnpma?si=0bbf3c60ed25491c" target="_blank">Spotify</a></li>
-      <li><a href="https://github.com/akamusti" target="_blank">Github</a></li>
-      <li><a href="https://boxd.it/hV36p" target="_blank">Letterboxd</a></li>
-      <li><a href="https://srlzd.com/u/akaMusti" target="_blank">Serializd</a></li>
-      <li><a href="https://codeberg.org/akaMusti" target="_blank">Codeberg</a></li>
-    </ul><hr>
-    <p>Sıkıldıkça ai proje üretiyordum ama artık kendim yapmaya çalışıyorum.</p>
-    <i>Ama şu an ki projeler bunlar:</i>
-    <ul>
-      <li><a href="https://github.com/akamusti/kestrel" target="_blank">Kestrel</a></li>
-      <li><a href="https://github.com/akamusti/PomodoroApp" target="_blank">PomodoroApp</a></li>
-      <li><a href="https://addons.mozilla.org/en-US/firefox/addon/soundsniff/" target="_blank">Soundsniff</a></li>
-      <li><a href="https://codeberg.org/akaMusti/letterboxdwheel" target="_blank">Letterboxd Wheel</a></li>
-      <li><a href="https://codeberg.org/akaMusti/flowsharp" target="_blank">Flowsharp</a></li>
-    </ul>
-    <br><hr>
-    <footer>
-        <i><b>by akaMusti</b></i>
-    </footer>
+  <body>
+    <header>
+      <h1>akaMusti</h1>
+      <p>Kendimce bir şeyler üretiyorum. Minimalist şeyleri de seviyorum.</p>
+    </header>
 
-    
-    
+    <main>
+      <section aria-labelledby="social-heading">
+        <h2 id="social-heading">Sosyal medya</h2>
+        <ul>
+          <li><a href="https://x.com/aakamusti" target="_blank" rel="noopener noreferrer">Twitter/X</a></li>
+          <li><a href="https://open.spotify.com/user/31wxrxbnvws63sdriqfgkuebnpma?si=0bbf3c60ed25491c" target="_blank" rel="noopener noreferrer">Spotify</a></li>
+          <li><a href="https://github.com/akamusti" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://boxd.it/hV36p" target="_blank" rel="noopener noreferrer">Letterboxd</a></li>
+          <li><a href="https://srlzd.com/u/akaMusti" target="_blank" rel="noopener noreferrer">Serializd</a></li>
+          <li><a href="https://codeberg.org/akaMusti" target="_blank" rel="noopener noreferrer">Codeberg</a></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projeler</h2>
+        <p>Sıkıldıkça AI ile proje üretiyordum, artık kendim yapmaya çalışıyorum.</p>
+        <ul>
+          <li><a href="https://github.com/akamusti/kestrel" target="_blank" rel="noopener noreferrer">Kestrel</a></li>
+          <li><a href="https://github.com/akamusti/PomodoroApp" target="_blank" rel="noopener noreferrer">PomodoroApp</a></li>
+          <li><a href="https://addons.mozilla.org/en-US/firefox/addon/soundsniff/" target="_blank" rel="noopener noreferrer">Soundsniff</a></li>
+          <li><a href="https://codeberg.org/akaMusti/letterboxdwheel" target="_blank" rel="noopener noreferrer">Letterboxd Wheel</a></li>
+          <li><a href="https://codeberg.org/akaMusti/flowsharp" target="_blank" rel="noopener noreferrer">Flowsharp</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <span>by akaMusti</span>
+    </footer>
   </body>
 </html>
