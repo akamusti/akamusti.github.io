@@ -1,148 +1,159 @@
 <!DOCTYPE html>
 <html lang="tr">
   <head>
-    <title>akaMusti</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#121212">
+    <meta name="theme-color" content="#040a06">
+    <meta name="description" content="musti.exe — akaMusti'nin 2000'ler tarzı kisisel sitesi. Sosyal medya, projeler ve biraz nostalji.">
+    <title>musti.exe ~ akaMusti</title>
+
+    <link rel="icon" type="image/gif" href="assets/images/favicon.gif">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        color-scheme: dark;
-        font-family: "JetBrains Mono", monospace;
-        background: #121212;
-        color: #f2f2f2;
-        font-synthesis: none;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        width: min(100% - 2rem, 680px);
-        margin: 0 auto;
-        padding: 4rem 0 2rem;
-        line-height: 1.7;
-      }
-
-      header {
-        margin-bottom: 2rem;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 1.8rem;
-        letter-spacing: -0.08em;
-      }
-
-      header p {
-        margin: 0.4rem 0 0;
-        color: #a3a3a3;
-      }
-
-      section {
-        padding: 1.5rem 0;
-        border-top: 1px solid #2d2d2d;
-      }
-
-      h2 {
-        margin: 0 0 0.8rem;
-        color: #a3a3a3;
-        font-size: 0.8rem;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-
-      p {
-        margin: 0;
-      }
-
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem 1rem;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      a {
-        color: #8bd49c;
-        text-decoration: none;
-        text-underline-offset: 0.2em;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      a:focus-visible {
-        outline: 2px solid #8bd49c;
-        outline-offset: 4px;
-      }
-
-      footer {
-        padding-top: 1rem;
-        border-top: 1px solid #2d2d2d;
-        color: #777;
-        font-size: 0.8rem;
-      }
-
-      @media (max-width: 480px) {
-        body {
-          padding-top: 2.5rem;
-        }
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header>
-      <h1>akaMusti</h1>
-      <p>Kendimce bir şeyler üretiyorum.</p>
-    </header>
+    <div class="wrapper">
+      <div id="flex">
+        <aside class="left" aria-label="Sol panel">
+          <div class="box">
+            <div class="content button-img">
+              <img src="assets/images/button-nowebp.gif" alt="No WebP!">
+              <img src="assets/images/button-webdesign.gif" alt="Graphic design is my passion">
+              <img src="assets/images/button-brackets.gif" alt="Made with Brackets">
+              <img src="assets/images/blinkie-gameboy.gif" alt="Game Boy">
+              <img src="assets/images/blinkie-gaming.gif" alt="I love gaming">
+            </div>
+          </div>
 
-    <main>
-      <section aria-labelledby="social-heading">
-        <h2 id="social-heading">Sosyal medya</h2>
-        <ul>
-          <li><a href="https://x.com/aakamusti" target="_blank" rel="noopener noreferrer">Twitter/X</a></li>
-          <li><a href="https://open.spotify.com/user/31wxrxbnvws63sdriqfgkuebnpma?si=0bbf3c60ed25491c" target="_blank" rel="noopener noreferrer">Spotify</a></li>
-          <li><a href="https://github.com/akamusti" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          <li><a href="https://boxd.it/hV36p" target="_blank" rel="noopener noreferrer">Letterboxd</a></li>
-          <li><a href="https://srlzd.com/u/akaMusti" target="_blank" rel="noopener noreferrer">Serializd</a></li>
-          <li><a href="https://codeberg.org/akaMusti" target="_blank" rel="noopener noreferrer">Codeberg</a></li>
-        </ul>
-      </section>
+          <nav class="nav" aria-label="Site navigasyonu">
+            <div class="box">
+              <div class="content">
+                <p class="box-title">NAVIGATION</p>
+                <div class="scroll nav-scroll" style="height: 365px;">
+                  <a href="#top">⌂ home / ana sayfa</a>
+                  <a href="#about">about / hakkımda</a>
+                  <a href="#social">social / sosyal</a>
+                  <a href="#projects">projects / projeler</a>
+                  <a href="#updates">updates / güncellemeler</a>
+                  <details>
+                    <summary>web / diger ▾</summary>
+                    <div class="details">
+                      <a href="https://neocities.org/" target="_blank" rel="noopener noreferrer">neocities ↗</a>
+                      <a href="https://00s.neocities.org/" target="_blank" rel="noopener noreferrer">ilham ↗</a>
+                      <a href="https://github.com/akamusti" target="_blank" rel="noopener noreferrer">github ↗</a>
+                    </div>
+                  </details>
+                  <br>
+                  <p class="mini-title">★ best viewed at 900px ★</p>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </aside>
 
-      <section aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Projeler</h2>
-        <ul>
-          <li><a href="https://github.com/akamusti/kestrel" target="_blank" rel="noopener noreferrer">Kestrel</a></li>
-          <li><a href="https://github.com/akamusti/PomodoroApp" target="_blank" rel="noopener noreferrer">PomodoroApp</a></li>
-          <li><a href="https://addons.mozilla.org/en-US/firefox/addon/soundsniff/" target="_blank" rel="noopener noreferrer">Soundsniff</a></li>
-          <li><a href="https://codeberg.org/akaMusti/letterboxdwheel" target="_blank" rel="noopener noreferrer">Letterboxd Wheel</a></li>
-          <li><a href="https://codeberg.org/akaMusti/flowsharp" target="_blank" rel="noopener noreferrer">Flowsharp</a></li>
-        </ul>
-      </section>
+        <main id="top">
+          <div class="header" role="img" aria-label="musti.exe baslıgı"></div>
+          <p class="header-sub">akamusti.github.io ✦ est. 2026 ✦ under construction</p>
 
-      <section aria-labelledby="site-heading">
-        <h2 id="site-heading">Site</h2>
-        <ul>
-          <li><a href="https://akamusti.github.io/online-futbol/" target="_blank" rel="noopener noreferrer">Futbolcu Mezatı</a></li>
-        </ul>
-      </section>
-    </main>
+          <div class="box">
+            <div class="content main-content">
+              <div class="stamps">
+                <img src="assets/images/stamp-cat.png" alt="Kedi damgası">
+                <img src="assets/images/stamp-neocities.png" alt="Neocities damgası">
+                <img src="assets/images/stamp-win.png" alt="Windows damgası">
+              </div>
 
-    <footer>
-      <span>by akaMusti</span>
-    </footer>
+              <h3>WELCOME! ようこそ！</h3>
+
+              <img class="mascot" src="assets/images/nyan.gif" alt="Piksel gökkusagı kedi">
+
+              <section id="about" aria-labelledby="about-heading">
+                <h2 id="about-heading">about me / hakkımda</h2>
+                <p>
+                  Kendimce bir seyler üretiyorum. / I make things in my own way. ✦
+                  Kod yazıyorum, arayüzlerle oynuyorum ve biraz da eski web' nostaljisi
+                  biriktiriyorum. Bu site, 2000'lerin kisisel sayfalarına küçük bir selam.
+                </p>
+                <p>
+                  Merhaba, ben akaMusti. Internette gezinmeyi, küçük araçlar yapmayı ve
+                  gereksiz yere detaylı seyler ögrenmeyi severim. Hos geldin! / Welcome,
+                  stranger!
+                </p>
+              </section>
+
+              <section id="social" aria-labelledby="social-heading">
+                <h2 id="social-heading">social / sosyal medya</h2>
+                <ul class="linklist">
+                  <li><a href="https://x.com/aakamusti" target="_blank" rel="noopener noreferrer">Twitter/X ↗</a></li>
+                  <li><a href="https://open.spotify.com/user/31wxrxbnvws63sdriqfgkuebnpma?si=0bbf3c60ed25491c" target="_blank" rel="noopener noreferrer">Spotify ↗</a></li>
+                  <li><a href="https://github.com/akamusti" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+                  <li><a href="https://boxd.it/hV36p" target="_blank" rel="noopener noreferrer">Letterboxd ↗</a></li>
+                  <li><a href="https://srlzd.com/u/akaMusti" target="_blank" rel="noopener noreferrer">Serializd ↗</a></li>
+                  <li><a href="https://codeberg.org/akaMusti" target="_blank" rel="noopener noreferrer">Codeberg ↗</a></li>
+                </ul>
+              </section>
+
+              <section id="projects" aria-labelledby="projects-heading">
+                <h2 id="projects-heading">projects / projeler</h2>
+                <ul class="linklist">
+                  <li><a href="https://github.com/akamusti/kestrel" target="_blank" rel="noopener noreferrer">Kestrel ↗</a></li>
+                  <li><a href="https://github.com/akamusti/PomodoroApp" target="_blank" rel="noopener noreferrer">PomodoroApp ↗</a></li>
+                  <li><a href="https://addons.mozilla.org/en-US/firefox/addon/soundsniff/" target="_blank" rel="noopener noreferrer">Soundsniff ↗</a></li>
+                  <li><a href="https://codeberg.org/akaMusti/letterboxdwheel" target="_blank" rel="noopener noreferrer">Letterboxd Wheel ↗</a></li>
+                  <li><a href="https://codeberg.org/akaMusti/flowsharp" target="_blank" rel="noopener noreferrer">Flowsharp ↗</a></li>
+                  <li><a href="https://akamusti.github.io/online-futbol/" target="_blank" rel="noopener noreferrer">Futbolcu Mezatı ↗</a></li>
+                </ul>
+              </section>
+
+              <p class="signoff">by akaMusti ✦ made with ♥, HTML & a little nostalgia</p>
+            </div>
+          </div>
+        </main>
+
+        <aside class="right" aria-label="Sag panel">
+          <div class="box">
+            <div class="content">
+              <div class="upd">
+                <p class="box-title">UPDATES</p>
+              </div>
+              <div class="scroll updates" id="updates" style="height: 225px;" aria-label="Güncelleme kayıtları">
+                <p><strong>21/11/2026</strong> site 00s tarzında yeniden yapıldı ✦</p>
+                <p><strong>20/11/2026</strong> yeni butonlar ve damgalar eklendi</p>
+                <p><strong>18/11/2026</strong> projeler listesi güncellendi</p>
+                <p><strong>12/11/2026</strong> hakkımda sayfası yazıldı</p>
+                <p><strong>05/11/2026</strong> yesil tema denendi</p>
+                <p><strong>28/10/2026</strong> birkaç baglantı düzeltildi</p>
+                <p><strong>14/10/2026</strong> yeni bir fikir deftere kaydedildi</p>
+                <p><strong>02/10/2026</strong> site hâlâ yapım asamasında</p>
+                <p><strong>19/09/2026</strong> ilk taslak ortaya çıktı</p>
+                <p><strong>01/09/2026</strong> musti.exe dogdu!</p>
+              </div>
+            </div>
+          </div>
+
+          <img class="divider" src="assets/images/divider.gif" alt="Yesil ayırıcı çizgi">
+
+          <div class="box bottom-right">
+            <div class="content">
+              <p class="mini-title">buttons & blinkies</p>
+              <div class="button-img">
+                <img src="assets/images/stamp-seal.png" alt="Fok damgası">
+                <img src="assets/images/stamp-water.png" alt="Islanmıs damga">
+                <img src="assets/images/stamp-wii.gif" alt="Wii damgası">
+              </div>
+            </div>
+          </div>
+
+          <p class="credits">
+            graphics: <a href="https://kenney.nl/" target="_blank" rel="noopener noreferrer">Kenney (CC0)</a>,
+            <a href="https://goooby.neocities.org/graphics" target="_blank" rel="noopener noreferrer">goooby</a> &
+            <a href="https://milo-html.neocities.org/my-art" target="_blank" rel="noopener noreferrer">milo-html</a>
+          </p>
+        </aside>
+      </div>
+    </div>
   </body>
 </html>
